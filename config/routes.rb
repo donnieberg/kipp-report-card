@@ -1,4 +1,26 @@
 KippReportCard::Application.routes.draw do
+
+  root :to => 'home#index'
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :users, :ratings
+
+  resources :regions do
+    resources :schools
+  end
+
+  resources :categories do
+    resources :char_strengths
+  end
+
+  get '/signup' => 'users#new'
+  get '/admin' => 'users#index'
+
+  match '/signout', to: 'sessions#destroy', via: :delete
+  get'/signin' => 'sessions#new'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
