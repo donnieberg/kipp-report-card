@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :school_id, :type, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :school_id, :type, :grade_level
+  has_many :ratings, foreign_key: "rater_id"
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -12,8 +13,6 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-
-  has_many :ratings, foreign_key: "rater_id"
 
 
   def User.new_remember_token

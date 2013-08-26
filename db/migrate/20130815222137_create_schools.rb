@@ -4,8 +4,7 @@ class CreateSchools < ActiveRecord::Migration
       t.string :name
       t.string :city
       t.string :state
-      t.string :level
-      t.integer :region_id
+      t.string :grade_level
 
       t.timestamps
     end
