@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :school_id, :type, :grade_level
+  attr_accessible :name, :email, :password, :password_confirmation, :school_id, :type, :grade_level, :course_id
   has_many :ratings, foreign_key: "rater_id"
 
   before_save { self.email = email.downcase }

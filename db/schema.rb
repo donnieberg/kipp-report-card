@@ -36,28 +36,33 @@ ActiveRecord::Schema.define(:version => 20130826061958) do
   create_table "ratings", :force => true do |t|
     t.integer  "number"
     t.integer  "rater_id"
+    t.string   "rater_type"
     t.integer  "student_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "char_strength_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "schools", :force => true do |t|
     t.string   "name"
     t.string   "city"
     t.string   "state"
-    t.string   "level"
-    t.integer  "region_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "grade_level"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "password"
+    t.string   "password_confirmation"
     t.integer  "school_id"
     t.string   "type"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "grade_level"
+    t.integer  "course_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.string   "password_digest"
     t.string   "remember_token"
   end
