@@ -21,8 +21,18 @@ Course.create(title:"RSPEC", teacher_id:1)
 #students (Avand's students)
 User.create(first_name: "Sharif", last_name:"Hadidi", email:"sharif@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
 User.create(first_name: "Ian", last_name:"Yang", email:"ian@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
+User.create(first_name: "Xiao", last_name:"Wu", email:"xiao@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
+User.create(first_name: "Lauren", last_name:"Havertz", email:"lauren@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
+User.create(first_name: "Dave", last_name:"Ferris", email:"dave@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
+User.create(first_name: "Josh", last_name:"Shelton", email:"josh@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
+
 User.create(first_name: "Alex", last_name:"Altair", email:"alex@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
 User.create(first_name: "Donielle", last_name:"Berg", email:"donielle@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
+User.create(first_name: "Ryan", last_name:"Waters", email:"ryan@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
+User.create(first_name: "Lior", last_name:"Bendat", email:"lior@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
+
+
+
 
 #Categories
 Category.create(content:"Zest")
@@ -68,13 +78,13 @@ CharStrength.create(content:"Is eager to explore new things", category_id:8)
 CharStrength.create(content:"Asks and answers questions to deepen understanding", category_id:8)
 CharStrength.create(content:"Actively listens to others", category_id:8)
 
-#ratings
-#Grit rating from Avand for Sharif
-Rating.create(number:4, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:1)
-Rating.create(number:3, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:2)
-Rating.create(number:5, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:3)
+# #ratings
+# #Grit rating from Avand for Sharif
+# Rating.create(number:4, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:1)
+# Rating.create(number:3, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:2)
+# Rating.create(number:5, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:3)
 
-#Zest ratings from Avand for Sharif
-Rating.create(number:2, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:4)
-Rating.create(number:3, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:5)
-Rating.create(number:2, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:6)
+# #Zest ratings from Avand for Sharif
+# Rating.create(number:2, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:4)
+# Rating.create(number:3, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:5)
+# Rating.create(number:2, rater_id:1, rater_type:"Teacher", student_id:5, char_strength_id:6)
