@@ -4,4 +4,9 @@ class School < ActiveRecord::Base
   has_many :users
   has_many :ratings, through: :users
 
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
+  validates :city, presence: true, length: { maximum: 50 }
+  validates :state, presence: true, length: { maximum: 2 }
+  validates :grade_level, presence: true, length: { maximum: 20 }
+
 end

@@ -1,5 +1,17 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @category = Category.new(content:"Zest")
+  end
+
+  subject { @category }
+
+  it { should have_many(:char_strengths) }
+  it { should have_many(:ratings) }
+
+  describe "when no content given" do
+    before { @category.content = "" }
+    it { should_not be_valid }
+  end
 end

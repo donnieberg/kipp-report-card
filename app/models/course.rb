@@ -6,4 +6,6 @@ class Course < ActiveRecord::Base
   has_many :students, through: :student_courses
 
   has_many :ratings, through: :students
+
+  validates :title, presence: true, length: { maximum: 80 }
 end

@@ -3,12 +3,13 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(name: "James Dean", email:"james@james.org", password: "foobar", password_confirmation: "foobar", school_id: 1, type:"Teacher")
+    @user = User.new(first_name: "James", last_name:"Dean", email:"james@james.org", password: "foobar", password_confirmation: "foobar", school_id: 1, type:"Teacher", grade_level:7)
   end
 
   subject { @user }
 
-  it { should respond_to(:name) }
+  it { should respond_to(:first_name) }
+  it { should respond_to(:last_name) }
   it { should respond_to(:email) }
   it { should respond_to(:school_id) }
   it { should respond_to(:type) }
@@ -19,15 +20,21 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
+  it { should have_many(:ratings) }
   it { should be_valid }
 
+  # describe "when User is TEacher" do
+  #   before { @user.save }
+  #   it { should have_many(:courses) }
+  # end
+
   describe "when name is blank" do
-    before { @user.name = " " }
+    before { @user.first_name = " " }
     it { should_not be_valid }
   end
 
   describe "when name is too damn long" do
-    before { @user.name = "a" * 51 }
+    before { @user.first_name = "a" * 51 }
     it { should_not be_valid }
   end
 
@@ -63,7 +70,7 @@ describe User do
 
   describe "when password isn't there" do
     before do
-      @user = User.new(name: "Mary Johnson", email: "Mary@kippnyc.org", password: " ", password_confirmation: " ", school_id: 1, type:"Teacher")
+      @user = User.new(first_name: "Mary", last_name:"Johnson", email: "Mary@kippnyc.org", password: " ", password_confirmation: " ", school_id: 1, type:"Teacher", grade_level:10)
     end
     it { should_not be_valid }
   end
@@ -92,6 +99,11 @@ describe User do
       it { should_not eq user_for_invalid_password }
       specify { expect(user_for_invalid_password).to be_false }
     end
+  end
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
   end
 
 end

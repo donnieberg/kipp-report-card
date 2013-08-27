@@ -3,4 +3,6 @@ class CharStrength < ActiveRecord::Base
 
   belongs_to :category
   has_many :ratings
+
+  validates :content, presence: true, length: { maximum: 200 }
 end

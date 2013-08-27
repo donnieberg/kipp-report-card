@@ -48,10 +48,10 @@ p {
   line-height: 1.7em;
 }
 #logo {
+  color:#000;
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -60,7 +60,7 @@ p {
 }
 
 #logo:hover {
-  color: #fff;
+  opacity:0.5;
   text-decoration: none;
 }
 /* footer */
@@ -159,4 +159,12 @@ input {
   @extend .control-group;
   @extend .error;
 }
+/*------------------------------------------------------------------------------------*/
 
+
+.gravatar {
+  width:100px;
+  height:100px;
+  display:block;
+  border-radius:50%;
+}

@@ -4,4 +4,5 @@ class Category < ActiveRecord::Base
   has_many :char_strengths
   has_many :ratings, through: :char_strengths
 
+  validates :content, presence: true, length: { maximum: 50 }
 end
