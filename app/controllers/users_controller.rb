@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def index
     #params[:page] automatically given to me by gem
     #@users = User.paginate(page: params[:page])
-    @students = Student.where(grade_level: @current_user.grade_level)
   end
 
   def new
