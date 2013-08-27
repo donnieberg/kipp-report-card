@@ -33,13 +33,12 @@ module SessionsHelper
     end
   end
 
-  ##does it need to be @current_user = nil?
   def sign_out
     @current_user = nil
     cookies.delete(:remember_token)
   end
 
-  #friendly forwarding methods
+  #friendly forwarding stuff
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
