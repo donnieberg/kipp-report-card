@@ -1,13 +1,13 @@
-// Place all the styles related to the Users controller here.
+/*// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
-@import 'bootstrap';
+/*@import 'bootstrap';
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
+/*$grayMediumLight: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -62,10 +62,10 @@ p {
 #logo:hover {
   opacity:0.5;
   text-decoration: none;
-}
+}*/
 /* footer */
 
-footer {
+/*footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
@@ -92,21 +92,11 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 10px;
-}
-
-/* ----Rails debugger tool----- */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
+}*/
 
 /* sidebar */
 
-aside {
+/*aside {
   section {
     padding: 10px 0;
     border-top: 1px solid $grayLighter;
@@ -132,11 +122,11 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
-}
+}*/
 
 /* ------forms-------- */
 
-input, textarea, select, .uneditable-input {
+/*input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   padding: 10px;
@@ -158,28 +148,120 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
-}
+}*/
 /*------------------------------------------------------------------------------------*/
-
-
-.gravatar {
-  width:100px;
-  height:100px;
-  display:block;
-  border-radius:50%;
+/*-------------------DONIELLE CUSTOM STYLES----------------------------------------*/
+body {
+  font:300 1.8em 'Lato', sans-serif;
+  color: #b1aea6;
+  background: #fffcf5;
+}
+h1,h2,h3,h4 {
+  font-family: 'Lato', sans-serif;
+}
+a, a:hover {
+  text-decoration: none;
 }
 
 
+/*-----------------------STart off-canvas nav bar-----------------------*/
+$lime-green: #79a002;
+
+html, body { min-height: 100%; }
+
+.main-header {
+  padding: 5px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease;
+  a {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 32px;
+    color:$lime-green;
+  }
+}
+
+.page-wrap {
+  float: right;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: lighten($lime-green, 8%);
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+  a {
+    display: block;
+    border-bottom: 1px solid #FFF;
+    color: white;
+    padding: 15px;
+    &:hover, &:focus {
+      background: $lime-green;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+/*    width: 34px;*/
+    background: $lime-green;
+  }
+}
+
+.content {
+  padding: 100px 20px 20px 20px;
+}
+
+.close-menu {
+  display: none;
+}
+
+#main-nav:target {
+  width: 25%;
+}
+#main-nav:target + .page-wrap {
+  width: 75%;
+  .open-menu {
+     display: none;
+  }
+  .close-menu {
+     display: block;
+  }
+  .main-header {
+    width: 75%;
+    left: 25%;
+  }
+}
+/*-----------------------end off-canvas nav bar-----------------------*/
+
+
+/*----------------GRADING------------------------*/
 .char_strength_rows {
   li {
     list-style-type: none;
     padding:10px;
   }
-
   li:nth-child(odd) {
     background:rgba(0,0,0,0.1);
   }
-
 }
 
 .rating_radio_buttons {
@@ -189,12 +271,20 @@ input {
     padding: 10px;
   }
 }
+/* --------------MISC--------------------------- */
 
-
-
-
-
-
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+}
+.gravatar {
+  width:100px;
+  height:100px;
+  display:block;
+  border-radius:50%;
+}
 
 
 
