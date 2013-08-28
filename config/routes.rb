@@ -1,9 +1,13 @@
 KippReportCard::Application.routes.draw do
 
-  root :to => 'users#index'
+  root :to => 'home#index'
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :ratings, :schools, :users, :categories, :char_strengths
+  resources :ratings, :schools, :char_strengths
+
+  resources :users do
+    resources :categories
+  end
 
   # resources :schools do
   #   resources :users

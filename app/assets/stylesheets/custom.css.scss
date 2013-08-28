@@ -168,3 +168,35 @@ input {
   display:block;
   border-radius:50%;
 }
+
+
+.char_strength_rows {
+  li {
+    list-style-type: none;
+    padding:10px;
+  }
+
+  li:nth-child(odd) {
+    background:rgba(0,0,0,0.1);
+  }
+
+}
+
+.rating_radio_buttons {
+  float:right;
+  li {
+    display:inline-block;
+    padding: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

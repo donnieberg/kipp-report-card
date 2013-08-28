@@ -1,0 +1,26 @@
+<h1>Category Index page - Grade Report for Students</h1>
+<h2><%#= @student.first_name %> <%#= @student.last_name %></h2>
+
+<%= form_tag(ratings_path) %>
+  <% @categories.each do |category| %>
+    <div>
+    <h3><%= category.content %></h3>
+    <ul class="char_strength_rows">
+    <% category.char_strengths.each do |char_strength| %>
+      <li>
+        <%= char_strength.content %>
+        <ul class="rating_radio_buttons">
+          1 <%= radio_button_tag "rating[#{char_strength.id}][number]", "1" %>
+          2 <%= radio_button_tag "rating[#{char_strength.id}][number]", "2" %>
+          3 <%= radio_button_tag "rating[#{char_strength.id}][number]", "3" %>
+          4 <%= radio_button_tag "rating[#{char_strength.id}][number]", "4" %>
+          5 <%= radio_button_tag "rating[#{char_strength.id}][number]", "5" %>
+        </ul>
+      </li>
+    <% end %>
+    </ul>
+    </div>
+  <% end %>
+
+<%= submit_tag "submit" %>
+
