@@ -48,8 +48,8 @@ module SessionsHelper
     session[:return_to] = request.url
   end
 
-  def admin?
-    current_user.admin
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 
   def active?

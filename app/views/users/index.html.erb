@@ -1,6 +1,10 @@
-<h2>My Students:</h2>
-<ul>
-<% @students.each do |student| %>
-  <li><%= student.first_name %> <%= link_to "Grade Student", user_categories_path(student) %></li>
+<% if current_user.type == 'Teacher' %>
+  <h2>My Students:</h2>
+  <ul>
+  <% @students.each do |student| %>
+    <li><%= student.first_name %> <%= link_to "Grade Student", user_categories_path(student) %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <h1>You're a student!</h1>
 <% end %>
-</ul>

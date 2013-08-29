@@ -5,7 +5,11 @@
         <li><%= gravatar_for current_user %></li>
         <li class="user_name"><%= current_user.first_name %></li>
         <li class="home"><%= link_to "Home", root_path %></li>
-        <li class="grade-students"><p><%= link_to "Grade Students", users_path %></p></li>
+        <% if current_user.type == 'Teacher' %>
+          <li class="grade-students"><p><%= link_to "Grade Students", users_path %></p></li>
+        <% else %>
+          <li class="grade-students"><p><%= link_to "My Report Card", user_categories_path(current_user) %></p></li>
+        <% end %>
         <li class="my-dashboard"><p><%= link_to "My Dashboard", users_path(current_user) %></p></li>
         <li class="settings"><p><%= link_to "Settings", edit_user_path(current_user) %></p></li>
         <li class="sign-out"><p><%= link_to "Sign out", signout_path, method: "delete" %></p></li>
