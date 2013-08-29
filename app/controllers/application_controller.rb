@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
-  protect_from_forgery
+  include UsersHelper
+  include RatingsHelper
 
+  protect_from_forgery
 end
 

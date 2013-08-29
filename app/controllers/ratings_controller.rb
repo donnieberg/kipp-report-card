@@ -1,7 +1,12 @@
 class RatingsController < ApplicationController
 
   def index
-    @self_ratings = Rating.all
+    @student = Student.find(params[:user_id])
+    @categories = Category.all
+
+    @student_ratings = @student.self_ratings.where(rater_type: "Student")
+    @teacher_ratings = @student.self_ratings.where(rater_type: "Teacher")
+
   end
 
   def new
@@ -18,12 +23,12 @@ class RatingsController < ApplicationController
       @rating.save
     end
     #if all our ratings saved is true..
-    if @saved_ratings_array.all?
+    if @saved_ratings_array.all? && @saved_ratings_array.length == 24
       flash[:success] = "Successfully submitted Report Card!"
       redirect_to users_path
     else
       flash[:danger] = "Error in submitting Report Card"
-      redirect_to users_path
+      redirect_to user_categories_path(params[:user_id])
     end
   end
 

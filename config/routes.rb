@@ -3,17 +3,18 @@ KippReportCard::Application.routes.draw do
   root :to => 'home#index'
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :ratings, :schools, :char_strengths
+  resources :schools, :char_strengths
 
   resources :users do
     resources :categories
+    resources :ratings
   end
 
   get '/admin' => 'users#index'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin', to: 'sessions#new',          via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
-  match '/users/:id/reportcard', to: 'categories#report_card', via: 'get'
+  match '/ratings', to: 'ratings#index',          via: 'get'
 
 
   # The priority is based upon order of creation:

@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def index
     #params[:page] automatically given to me by gem
     #@users = User.paginate(page: params[:page])
-    @students = Student.where(grade_level: current_user.grade_level)
+    @students = Student.where(grade_level: current_user.grade_level).order("last_name ASC")
+    #@completed_report_card = completed_report_card?(student)
   end
 
   def new
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
+
 
   private
     # Before filters

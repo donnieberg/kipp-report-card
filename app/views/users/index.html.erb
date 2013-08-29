@@ -1,11 +1,4 @@
 <% if current_user.type == 'Teacher' %>
-<!--   <h2>My Students:</h2>
-  <ul>
-  <%# @students.each do |student| %>
-    <li><%#= student.first_name %> <%#= link_to "Grade Student", user_categories_path(student) %></li>
-  <%# end %>
-  </ul> -->
-
   <table class="footable" data-filter="#filter" data-page-size="5">
     <thead>
       <tr>
@@ -33,7 +26,11 @@
         <td><%= student.first_name %></td>
         <td>Student ID</td>
         <td><%= student.grade_level %></td>
-        <td><%= link_to "Grade Student", user_categories_path(student) %></td>
+        <% if completed_report_card?(student) %>
+          <td><%= link_to "VIEW DATA", user_ratings_path(student) %></td>
+        <% else %>
+          <td><%= link_to "Grade Student", user_categories_path(student) %></td>
+        <% end %>
       </tr>
       <% end %>
     </tbody>

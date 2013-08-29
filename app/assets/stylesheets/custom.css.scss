@@ -103,16 +103,16 @@ html, body { min-height: 100%; }
       border-bottom: 1px solid #fff;
     }
     li.grade-students {
-      background: url(/assets/pen.png) no-repeat left 10px top 10px;
+      background: url(/assets/pen_white.png) no-repeat left 10px top 10px;
     }
     li.my-dashboard {
-      background: url(/assets/params.png) no-repeat left 10px top 10px;
+      background: url(/assets/params_white.png) no-repeat left 10px top 10px;
     }
     li.settings {
-      background: url(/assets/settings.png) no-repeat left 10px top 10px;
+      background: url(/assets/settings_white.png) no-repeat left 10px top 10px;
     }
     li.home {
-      background: url(/assets/shop.png) no-repeat left 10px top 10px;
+      background: url(/assets/shop_white.png) no-repeat left 10px top 10px;
     }
   }
   p {
@@ -201,6 +201,7 @@ html, body { min-height: 100%; }
   width: 20%;
   padding: 10px;
   border: 2px lighten($lime-green, 8%) solid;
+  transition: border 0.5s ease;
   color: $lime-green;
   background: transparent;
   &:hover, &:focus {
