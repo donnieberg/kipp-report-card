@@ -1,11 +1,7 @@
-<div class="page-heading">
-  <h1>Report Card for <span class="lime-text"><%= @student.first_name %> <%= @student.last_name %></span></h1>
-  <%= gravatar_for @student %>
-</div>
+<h1>Category Index page - Grade Report for Students</h1>
+<h2><%= @student.first_name %> <%#= @student.last_name %></h2>
 
-
-<!--  Sends @student.id with form so that in url, it'd look something like /user_id?=1 so in controller, we can acces it with params[:user]-->
-<%= form_tag(ratings_path(user_id: @student.id)) %>
+<%= form_tag(ratings_path) %>
   <% @categories.each do |category| %>
     <div>
     <h3><%= category.content %></h3>

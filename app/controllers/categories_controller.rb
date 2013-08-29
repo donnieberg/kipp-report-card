@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @student = Student.find(params[:user_id])
   end
 
   def new
@@ -14,7 +15,7 @@ class CategoriesController < ApplicationController
       render :index
     else
       render :new
-      flash.now[:error] = "Error in creating category"
+      flash[:danger] = "Error in creating category"
     end
   end
 
@@ -30,5 +31,9 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def report_card
+    @categories = Category.all
   end
 end

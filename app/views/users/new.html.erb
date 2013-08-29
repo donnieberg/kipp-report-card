@@ -2,7 +2,6 @@
 <h1>Sign up</h1>
   <div class="col-md-4 col-md-offset-1">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
       <%= f.select :school_id, School.all.map{|school| [school.name, school.id]}, :include_blank => true, :prompt => "Select School" %>
       <br>
       <%= f.check_box(:type, {}, checked_value="Teacher") %> Teacher  <%= f.check_box(:type, {}, checked_value="Student") %> Student

@@ -9,17 +9,11 @@ KippReportCard::Application.routes.draw do
     resources :categories
   end
 
-  # resources :schools do
-  #   resources :users
-  # end
-
-  # resources :categories do
-  #   resources :char_strengths
-  # end
   get '/admin' => 'users#index'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin', to: 'sessions#new',          via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/users/:id/reportcard', to: 'categories#report_card', via: 'get'
 
 
   # The priority is based upon order of creation:

@@ -151,13 +151,21 @@ input {
 }*/
 /*------------------------------------------------------------------------------------*/
 /*-------------------DONIELLE CUSTOM STYLES----------------------------------------*/
+$lime-green: #79a002;
 body {
   font:300 1.8em 'Lato', sans-serif;
   color: #b1aea6;
   background: #fffcf5;
 }
+.page-heading {
+  text-align: center;
+}
 h1,h2,h3,h4 {
   font-family: 'Lato', sans-serif;
+}
+.lime-text {
+  color: $lime-green;
+  font-weight: 400;
 }
 a, a:hover {
   text-decoration: none;
@@ -165,11 +173,11 @@ a, a:hover {
 
 
 /*-----------------------STart off-canvas nav bar-----------------------*/
-$lime-green: #79a002;
 
 html, body { min-height: 100%; }
 
 .main-header {
+  border-bottom: 1px solid #ccc;
   padding: 5px;
   text-align: center;
   position: fixed;
@@ -181,7 +189,7 @@ html, body { min-height: 100%; }
     left: 20px;
     top: 20px;
     font-size: 32px;
-    color:$lime-green;
+    color: lighten($lime-green, 8%);
   }
 }
 
@@ -205,6 +213,13 @@ html, body { min-height: 100%; }
     li {
       list-style: none;
     }
+    li.user_name {
+      color: #fff;
+      text-align: center;
+      font-size: 2em;
+      padding: 10px;
+      border-bottom: 1px solid #fff;
+    }
   }
   a {
     display: block;
@@ -227,7 +242,7 @@ html, body { min-height: 100%; }
 }
 
 .content {
-  padding: 100px 20px 20px 20px;
+  padding: 10%;
 }
 
 .close-menu {
@@ -251,7 +266,6 @@ html, body { min-height: 100%; }
   }
 }
 /*-----------------------end off-canvas nav bar-----------------------*/
-
 
 /*----------------GRADING------------------------*/
 .char_strength_rows {
@@ -280,10 +294,12 @@ html, body { min-height: 100%; }
   margin-top: 45px;
 }
 .gravatar {
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
   display:block;
   border-radius:50%;
+  border: 3px solid #fff;
+  margin: 10px auto;
 }
 
 

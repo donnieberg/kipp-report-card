@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Character Labs, " + @user.first_name + "!"
       redirect_to @user
     else
-      flash.now[:error] = "Error, please try creating a profile again."
+      flash[:danger] = "Error, please try creating a profile again."
       render 'new'
     end
   end

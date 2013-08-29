@@ -9,23 +9,21 @@ class RatingsController < ApplicationController
   end
 
   def create
-    params[:rating].each do |id, attrs|
+    @saved_ratings_array = params[:rating].map do |id, attrs|
       @rating = Rating.new(attrs)
       @rating.char_strength_id = id
       @rating.rater_type = current_user.type
       @rating.rater_id = current_user.id
-      #@rating.student_id = student_id
-      binding.pry
-      #@rating.save
+      @rating.student_id = params[:user_id]
+      @rating.save
     end
-
-    @rating = Rating.new(params[:rating])
-    if @rating.save
-      flash.now[:success] = "Successfully submitted Report Card!"
-      redirect_to root_url
+    #if all our ratings saved is true..
+    if @saved_ratings_array.all?
+      flash[:success] = "Successfully submitted Report Card!"
+      redirect_to users_path
     else
-      flash.now[:error] = "Error in submitting Report Card"
-      render :new
+      flash[:danger] = "Error in submitting Report Card"
+      redirect_to users_path
     end
   end
 

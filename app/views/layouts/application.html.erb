@@ -8,32 +8,11 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <nav class="main-nav" id="main-nav">
-      <%= link_to "Character Labs", root_path, id: "logo" %>
-      <ul>
-        <% if signed_in? %>
-          <li><%= link_to "Grade Character Strengths", users_path %></li>
-          <li><%= link_to "My Dashboard", users_path(current_user) %></li>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-        <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
-        <% end %>
-      </ul>
-  </nav>
-
+  <%= render 'layouts/off_canvas_nav' %>
   <div class="page-wrap">
-    <header class="main-header">
-      <a href="#main-nav" class="open-menu">
-        ☰
-      </a>
-      <a href="#" class="close-menu">
-        ☰
-      </a>
-
-      <h1>Character Labs</h1>
-    </header>
+    <%= render 'layouts/header' %>
     <div class="content">
+    <%= render 'layouts/flashMessages' %>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
     </div>

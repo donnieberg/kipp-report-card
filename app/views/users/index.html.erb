@@ -5,6 +5,6 @@
 <h2>My Students:</h2>
 <ul>
 <% @students.each do |student| %>
-  <li><%= student.first_name %><%#= student.self_ratings %><%= link_to "Grade Student", user_categories_path(student) %></li>
+  <li><%= student.first_name %><%= link_to "Grade Student", user_categories_path(student) %></li>
 <% end %>
 </ul>

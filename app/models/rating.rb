@@ -6,10 +6,10 @@ class Rating < ActiveRecord::Base
   belongs_to :char_strength
 
   validates :number, presence: true
-
-  def overall_averages
-
-  end
+  validates :rater_id, presence: true
+  validates :rater_type, presence: true
+  validates :student_id, presence: true
+  validates :char_strength_id, presence: true
 
 end
 
