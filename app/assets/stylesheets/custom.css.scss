@@ -198,9 +198,7 @@ html, body { min-height: 100%; }
   border: 3px solid #fff;
 }
 .button {
-  display: block;
-  margin: 30px auto;
-  width: 30%;
+  width: 20%;
   padding: 10px;
   border: 2px lighten($lime-green, 8%) solid;
   color: $lime-green;
@@ -209,6 +207,11 @@ html, body { min-height: 100%; }
     border: 2px $dirty-brown solid;
     color: $dirty-brown;
   }
+}
+.button.report-card-button {
+  display: block;
+  margin: 30px auto;
+  width: 30%;
 }
 
 
