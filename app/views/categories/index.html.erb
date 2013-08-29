@@ -1,6 +1,5 @@
 <div class="page-heading">
-  <h1>Report Card for <span class="lime-text"><%= @student.first_name %> <%= @student.last_name %></span></h1>
-  <%= gravatar_for @student %>
+  <h1>Report Card | <span class="lime-text"><%= gravatar_for @student %> <%= @student.first_name %> <%= @student.last_name %></span></h1>
 </div>
 
 
@@ -14,11 +13,11 @@
       <li>
         <%= char_strength.content %>
         <ul class="rating_radio_buttons">
-          1 <%= radio_button_tag "rating[#{char_strength.id}][number]", "1" %>
-          2 <%= radio_button_tag "rating[#{char_strength.id}][number]", "2" %>
-          3 <%= radio_button_tag "rating[#{char_strength.id}][number]", "3" %>
-          4 <%= radio_button_tag "rating[#{char_strength.id}][number]", "4" %>
-          5 <%= radio_button_tag "rating[#{char_strength.id}][number]", "5" %>
+          <li><%= radio_button_tag "rating[#{char_strength.id}][number]", "1" %> 1</li>
+          <li><%= radio_button_tag "rating[#{char_strength.id}][number]", "2" %> 2</li>
+          <li><%= radio_button_tag "rating[#{char_strength.id}][number]", "3" %> 3</li>
+          <li><%= radio_button_tag "rating[#{char_strength.id}][number]", "4" %> 4</li>
+          <li><%= radio_button_tag "rating[#{char_strength.id}][number]", "5" %> 5</li>
         </ul>
       </li>
     <% end %>

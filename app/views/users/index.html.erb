@@ -1,10 +1,6 @@
-<h1>
-  <%= gravatar_for @current_user %>
-  <%= @current_user.first_name %>
-</h1>
 <h2>My Students:</h2>
 <ul>
 <% @students.each do |student| %>
-  <li><%= student.first_name %><%= link_to "Grade Student", user_categories_path(student) %></li>
+  <li><%= student.first_name %> <%= link_to "Grade Student", user_categories_path(student) %></li>
 <% end %>
 </ul>

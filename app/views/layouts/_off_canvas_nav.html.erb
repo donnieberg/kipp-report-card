@@ -4,10 +4,11 @@
       <% if signed_in? %>
         <li><%= gravatar_for current_user %></li>
         <li class="user_name"><%= current_user.first_name %></li>
-        <li><%= link_to "Grade Character Strengths", users_path %></li>
-        <li><%= link_to "My Dashboard", users_path(current_user) %></li>
-        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-        <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+        <li class="home"><%= link_to "Home", root_path %></li>
+        <li class="grade-students"><p><%= link_to "Grade Students", users_path %></p></li>
+        <li class="my-dashboard"><p><%= link_to "My Dashboard", users_path(current_user) %></p></li>
+        <li class="settings"><p><%= link_to "Settings", edit_user_path(current_user) %></p></li>
+        <li class="sign-out"><p><%= link_to "Sign out", signout_path, method: "delete" %></p></li>
       <% else %>
         <li><%= link_to "Sign in", signin_path %></li>
       <% end %>
