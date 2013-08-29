@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :school_id
       t.string :type
       t.integer :grade_level
+      t.integer :person_id
 
       t.timestamps
     end

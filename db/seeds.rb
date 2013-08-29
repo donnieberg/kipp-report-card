@@ -9,27 +9,27 @@ School.create(name: "KIPP SF Bay", city:"San Francisco", state:"CA", grade_level
 School.create(name: "KIPP Heartwood", city:"San Francisco", state:"CA", grade_level:"High")
 
 #teachers (avand belongs to KIPP SF Bay)
-User.create(first_name: "Avand", last_name:"Amiri", email:"avand@gmail.com", school_id: 1, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 7)
-User.create(first_name: "Jackie", last_name:"Herrlin", email:"jackie@gmail.com", school_id: 1, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 7)
-User.create(first_name: "Anil", last_name:"Bridpal", email:"anil@gmail.com", school_id: 2, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 10)
-User.create(first_name: "Markus", last_name:"Guehrs", email:"markus@gmail.com", school_id: 2, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 10)
+User.create(first_name: "Avand", last_name:"Amiri", email:"avand@gmail.com", school_id: 1, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1111)
+User.create(first_name: "Jackie", last_name:"Herrlin", email:"jackie@gmail.com", school_id: 1, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:2222)
+User.create(first_name: "Anil", last_name:"Bridpal", email:"anil@gmail.com", school_id: 2, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:3333)
+User.create(first_name: "Markus", last_name:"Guehrs", email:"markus@gmail.com", school_id: 2, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:4444)
 
 #courses (Avand's courses)
 Course.create(title:"Rails 4", teacher_id:1)
 Course.create(title:"RSPEC", teacher_id:1)
 
 #students (Avand's students)
-User.create(first_name: "Sharif", last_name:"Hadidi", email:"sharif@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
-User.create(first_name: "Ian", last_name:"Yang", email:"ian@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
-User.create(first_name: "Xiao", last_name:"Wu", email:"xiao@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
-User.create(first_name: "Lauren", last_name:"Havertz", email:"lauren@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
-User.create(first_name: "Dave", last_name:"Ferris", email:"dave@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
-User.create(first_name: "Josh", last_name:"Shelton", email:"josh@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7)
+User.create(first_name: "Sharif", last_name:"Hadidi", email:"sharif@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:5555)
+User.create(first_name: "Ian", last_name:"Yang", email:"ian@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:6666)
+User.create(first_name: "Xiao", last_name:"Wu", email:"xiao@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:7777)
+User.create(first_name: "Lauren", last_name:"Havertz", email:"lauren@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:8888)
+User.create(first_name: "Dave", last_name:"Ferris", email:"dave@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:9999)
+User.create(first_name: "Josh", last_name:"Shelton", email:"josh@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
 
-User.create(first_name: "Alex", last_name:"Altair", email:"alex@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
-User.create(first_name: "Donielle", last_name:"Berg", email:"donielle@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
-User.create(first_name: "Ryan", last_name:"Waters", email:"ryan@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
-User.create(first_name: "Lior", last_name:"Bendat", email:"lior@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10)
+User.create(first_name: "Alex", last_name:"Altair", email:"alex@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:11111)
+User.create(first_name: "Donielle", last_name:"Berg", email:"donielle@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1212)
+User.create(first_name: "Ryan", last_name:"Waters", email:"ryan@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1313)
+User.create(first_name: "Lior", last_name:"Bendat", email:"lior@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1414)
 
 
 
