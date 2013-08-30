@@ -1,3 +1,5 @@
+<!------ RATINGS PAGE FOR INDIVIDUAL STUDENT ONLY ------->
+
 <% if current_user.type == "Teacher" %>
   <!-- --------------------------------TEACHER VIEW------------------------------------- -->
   <h1>Character Strength Averages for <%= @student.first_name %> <%= @student.last_name %></h1>
@@ -5,20 +7,20 @@
   <h2>Combined Teacher/Student</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Combined Average Rating: <%= category_average(category) %></li>
+    <li><%= category.content %> Combined Average Rating: <%= student_category_average(category) %></li>
   </ul>
   <% end %>
   <h2>Combined Teachers</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Teachers Average Rating: <%= category_average(category, "Teacher") %></li>
+    <li><%= category.content %> Teachers Average Rating: <%= student_category_average(category, "Teacher") %></li>
   </ul>
   <% end %>
 
   <h2>Student's Self Assessment</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li>My <%= category.content %> Ratings: <%= category_average(category, "Student") %></li>
+    <li>My <%= category.content %> Ratings: <%= student_category_average(category, "Student") %></li>
   </ul>
   <% end %>
 
@@ -29,21 +31,21 @@
   <h2>Combined Teacher/Student</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Combined Average Rating: <%= category_average(category) %></li>
+    <li><%= category.content %> Combined Average Rating: <%= student_category_average(category) %></li>
   </ul>
   <% end %>
 
   <h2>Combined Teachers</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Teachers Average Rating: <%= category_average(category, "Teacher") %></li>
+    <li><%= category.content %> Teachers Average Rating: <%= student_category_average(category, "Teacher") %></li>
   </ul>
   <% end %>
 
   <h2>My Ratings</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li>My <%= category.content %> Ratings: <%= category_average(category, "Student") %></li>
+    <li>My <%= category.content %> Ratings: <%= student_category_average(category, "Student") %></li>
   </ul>
   <% end %>
 

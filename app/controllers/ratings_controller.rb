@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
 
-  def index
+  def index #individual student's ratings
     @student = Student.find(params[:user_id])
     @categories = Category.all
   end
@@ -28,4 +28,7 @@ class RatingsController < ApplicationController
     end
   end
 
+
+  def teacher_dash #all student's ratings
+  end
 end

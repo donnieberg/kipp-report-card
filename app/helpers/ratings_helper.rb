@@ -1,10 +1,9 @@
 module RatingsHelper
   def completed_report_card?(student)
-    ####FIX LOGIC - current user's ratings for the particular student == CharStrength.all.length
-    student.self_ratings.length >= CharStrength.all.length
+    current_user.ratings.where(student_id: student.id).length >= CharStrength.all.length
   end
 
-  def category_average(category, rater_type=nil)
+  def student_category_average(category, rater_type=nil)
     if rater_type.nil?
       ratings_array = category.ratings.where(student_id:@student.id)
     elsif rater_type == "Teacher"
