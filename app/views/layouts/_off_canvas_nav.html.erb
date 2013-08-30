@@ -1,8 +1,7 @@
 <nav class="main-nav" id="main-nav">
-    <%= link_to "Character Labs", root_path, id: "logo" %>
+  <% if signed_in? %>
+    <%= gravatar_for current_user %>
     <ul>
-      <% if signed_in? %>
-        <li><%= gravatar_for current_user %></li>
         <li class="user_name"><%= current_user.first_name %></li>
           <li>
             <%= link_to root_path do %>
@@ -42,9 +41,9 @@
             <% end %>
           </li>
         <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-      <% else %>
-        <li><%= link_to "Sign in", signin_path %></li>
-      <% end %>
+    <% else %>
+      <li><%= link_to "Sign in", signin_path %></li>
+    <% end %>
     </ul>
 </nav>
 

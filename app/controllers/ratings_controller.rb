@@ -1,11 +1,11 @@
 class RatingsController < ApplicationController
 
   def index
-    @student = Student.find(params[:user_id])
+    # @student = Student.find(params[:user_id])
     @categories = Category.all
 
-    @student_ratings = @student.self_ratings.where(rater_type: "Student")
-    @teacher_ratings = @student.self_ratings.where(rater_type: "Teacher")
+    # @student_ratings = @student.self_ratings.where(rater_type: "Student")
+    # @teacher_ratings = @student.self_ratings.where(rater_type: "Teacher")
 
   end
 
