@@ -20,14 +20,14 @@
       </tr>
     </thead>
     <tbody>
-      <% @students.each do |student| %>
+      <% @all_students.each do |student| %>
       <tr>
         <td><%= student.last_name %></td>
         <td><%= student.first_name %></td>
         <td>Student ID</td>
         <td><%= student.grade_level %></td>
         <% if completed_report_card?(student) %>
-          <td><%= link_to "VIEW DATA", user_ratings_path(student) %></td>
+          <td><%= link_to "COMPLETED:View data", user_ratings_path(student) %></td>
         <% else %>
           <td><%= link_to "Grade Student", user_categories_path(student) %></td>
         <% end %>

@@ -1,6 +1,7 @@
 module RatingsHelper
   def completed_report_card?(student)
-    student.self_ratings.length == 24
+    ####FIX LOGIC - current user's ratings for the particular student == CharStrength.all.length
+    student.self_ratings.length >= CharStrength.all.length
   end
 
   def category_average(category, rater_type=nil)
@@ -11,9 +12,11 @@ module RatingsHelper
     else
       ratings_array = category.ratings.where(student_id:@student.id).where(rater_type:"Student")
     end
-    numbers = ratings_array.map do |rating|
-      rating.number
+    unless ratings_array.empty?
+      ratings = ratings_array.map { |rating| rating.number }
+      ratings.reduce(:+)/ratings.length
+    else
+      return []
     end
-    numbers.reduce(:+)/numbers.length
   end
 end

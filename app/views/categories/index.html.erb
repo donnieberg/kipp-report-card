@@ -4,7 +4,7 @@
 
 
 <!--  Sends @student.id with form so that in url, it'd look something like /user_id?=1 so in controller, we can acces it with params[:user]-->
-<%= form_tag(ratings_path(user_id: @student.id)) %>
+<%= form_tag(user_ratings_path(user_id: @student.id)) %>
   <% @categories.each do |category| %>
     <div>
     <h3><%= category.content %></h3>

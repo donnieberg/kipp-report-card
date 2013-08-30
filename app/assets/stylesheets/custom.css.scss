@@ -46,8 +46,9 @@ h1,h2,h3,h4 {
 a, a:hover {
   text-decoration: none;
 }
-
-
+li {
+  list-style: none;
+}
 /*-----------------------STart off-canvas nav bar-----------------------*/
 
 html, body { min-height: 100%; }
@@ -92,7 +93,6 @@ html, body { min-height: 100%; }
     margin: 0;
     padding: 0;
     li {
-      list-style: none;
       border-bottom: 1px solid #FFF;
       a {
         padding: 20px;
@@ -157,7 +157,6 @@ html, body { min-height: 100%; }
 /*----------------GRADING------------------------*/
 .char_strength_rows {
   li {
-    list-style-type: none;
     padding:10px;
   }
   li:nth-child(odd) {
