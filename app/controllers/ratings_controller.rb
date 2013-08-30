@@ -30,5 +30,6 @@ class RatingsController < ApplicationController
 
 
   def teacher_dash #all student's ratings
+    @categories = Category.all
   end
 end

@@ -7,20 +7,20 @@
   <h2>Combined Teacher/Student</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Combined Average Rating: <%= student_category_average(category) %></li>
+    <li><%= category.content %> Combined Average Rating: <%= category_average_student(category) %></li>
   </ul>
   <% end %>
   <h2>Combined Teachers</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Teachers Average Rating: <%= student_category_average(category, "Teacher") %></li>
+    <li><%= category.content %> Teachers Average Rating: <%= category_average_student(category, "Teacher") %></li>
   </ul>
   <% end %>
 
   <h2>Student's Self Assessment</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li>My <%= category.content %> Ratings: <%= student_category_average(category, "Student") %></li>
+    <li>My <%= category.content %> Ratings: <%= category_average_student(category, "Student") %></li>
   </ul>
   <% end %>
 
@@ -31,21 +31,21 @@
   <h2>Combined Teacher/Student</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Combined Average Rating: <%= student_category_average(category) %></li>
+    <li><%= category.content %> Combined Average Rating: <%= category_average_student(category) %></li>
   </ul>
   <% end %>
 
   <h2>Combined Teachers</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li><%= category.content %> Teachers Average Rating: <%= student_category_average(category, "Teacher") %></li>
+    <li><%= category.content %> Teachers Average Rating: <%= category_average_student(category, "Teacher") %></li>
   </ul>
   <% end %>
 
   <h2>My Ratings</h2>
   <% @categories.each do |category| %>
   <ul>
-    <li>My <%= category.content %> Ratings: <%= student_category_average(category, "Student") %></li>
+    <li>My <%= category.content %> Ratings: <%= category_average_student(category, "Student") %></li>
   </ul>
   <% end %>
 
