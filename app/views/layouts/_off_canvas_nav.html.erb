@@ -4,16 +4,44 @@
       <% if signed_in? %>
         <li><%= gravatar_for current_user %></li>
         <li class="user_name"><%= current_user.first_name %></li>
-        <li class="home"><%= link_to "Home", root_path %></li>
+          <li>
+            <%= link_to root_path do %>
+            <div class="icon"><%=image_tag "shop_white.png"%></div>
+            <div class="navtext">Home</div>
+            <% end %>
+          </li>
         <% if current_user.type == 'Teacher' %>
-          <li class="grade-students"><p><%= link_to "Grade Students", users_path %></p></li>
-        <li class="my-dashboard"><p><%= link_to "My Dashboard", ratings_path %></p></li>
+          <li><%= link_to users_path do %>
+            <div class="icon"><%=image_tag "pen_white.png"%></div>
+            <div class="navtext">Grade Students</div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to ratings_path do %>
+            <div class="icon"><%=image_tag "params_white.png"%></div>
+            <div class="navtext">My Dashboard</div>
+            <% end %>
+          </li>
         <% else %>
-          <li class="grade-students"><p><%= link_to "My Report Card", user_categories_path(current_user) %></p></li>
-          <li class="my-dashboard"><p><%= link_to "My Dashboard", user_ratings_path(current_user) %></p></li>
+          <li><%= link_to user_categories_path(current_user) do %>
+            <div class="icon"><%=image_tag "pen_white.png"%></div>
+            <div class="navtext">My Report Card</div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_ratings_path(current_user) do %>
+            <div class="icon"><%=image_tag "params_white.png"%></div>
+            <div class="navtext">My Dashboard</div>
+            <% end %>
+          </li>
         <% end %>
-        <li class="settings"><p><%= link_to "Settings", edit_user_path(current_user) %></p></li>
-        <li class="sign-out"><p><%= link_to "Sign out", signout_path, method: "delete" %></p></li>
+          <li>
+            <%= link_to edit_user_path(current_user) do %>
+            <div class="icon"><%=image_tag "settings_white.png"%></div>
+            <div class="navtext">Settings</div>
+            <% end %>
+          </li>
+        <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
       <% else %>
         <li><%= link_to "Sign in", signin_path %></li>
       <% end %>

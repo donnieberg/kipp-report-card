@@ -84,7 +84,7 @@ html, body { min-height: 100%; }
   background: lighten($lime-green, 8%);
   overflow-y: auto;
   transition: width 0.3s ease;
-  img {
+  img.gravatar {
     display: block;
     margin: 10px auto;
   }
@@ -94,6 +94,9 @@ html, body { min-height: 100%; }
     li {
       list-style: none;
       border-bottom: 1px solid #FFF;
+      a {
+        padding: 20px;
+      }
     }
     li.user_name {
       color: #fff;
@@ -102,21 +105,10 @@ html, body { min-height: 100%; }
       padding: 10px;
       border-bottom: 1px solid #fff;
     }
-    li.grade-students {
-      background: url(/assets/pen_white.png) no-repeat left 10px top 10px;
+    .icon {
+      float: left;
+      margin-right: 10px;
     }
-    li.my-dashboard {
-      background: url(/assets/params_white.png) no-repeat left 10px top 10px;
-    }
-    li.settings {
-      background: url(/assets/settings_white.png) no-repeat left 10px top 10px;
-    }
-    li.home {
-      background: url(/assets/shop_white.png) no-repeat left 10px top 10px;
-    }
-  }
-  p {
-    margin: 0;
   }
   a {
     display: block;
@@ -132,7 +124,6 @@ html, body { min-height: 100%; }
     top: 0;
     right: 0;
     height: 100%;
-/*    width: 34px;*/
     background: $lime-green;
   }
 }
