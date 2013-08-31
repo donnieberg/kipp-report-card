@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     #params[:page] automatically given to me by gem
     #@users = User.paginate(page: params[:page])
     @all_students = Student.where(grade_level: current_user.grade_level).order("last_name ASC")
+    @users = User.where(school_id: current_user.school_id)
   end
 
   def new
@@ -37,9 +38,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
-      sign_in @user
-      redirect_to @user
+      # sign_in @user
+      # redirect_to @user
     else
+      flash[:danger] = "Error in updating profile"
       render 'edit'
     end
   end

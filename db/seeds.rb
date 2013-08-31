@@ -27,7 +27,6 @@ User.create(first_name: "Dave", last_name:"Ferris", email:"dave@gmail.com", scho
 User.create(first_name: "Josh", last_name:"Shelton", email:"josh@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
 
 User.create(first_name: "Alex", last_name:"Altair", email:"alex@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:11111)
-User.create(first_name: "Donielle", last_name:"Berg", email:"donielle@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1212)
 User.create(first_name: "Ryan", last_name:"Waters", email:"ryan@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1313)
 User.create(first_name: "Lior", last_name:"Bendat", email:"lior@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1414)
 

@@ -33,9 +33,6 @@ body {
   color: #b1aea6;
   background: #fffcf5;
 }
-.page-heading {
-  text-align: center;
-}
 h1,h2,h3,h4 {
   font-family: 'Lato', sans-serif;
 }
@@ -154,6 +151,19 @@ html, body { min-height: 100%; }
 }
 /*-----------------------end off-canvas nav bar-----------------------*/
 
+
+.page-heading {
+  text-align: center;
+}
+.hero {
+  img {
+    width: 100%;
+  }
+}
+
+
+
+
 /*----------------GRADING------------------------*/
 .char_strength_rows {
   li {
@@ -204,7 +214,9 @@ html, body { min-height: 100%; }
   margin: 30px auto;
   width: 30%;
 }
-
+.button.signup-button {
+  width: auto;
+}
 
 
 

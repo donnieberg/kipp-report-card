@@ -22,7 +22,6 @@ module RatingsHelper
   def category_average_teachersstudents(category, rater_type=nil)
     ratings_array = category.ratings
     ratings_array.select! do |rating|
-      binding.pry
       rating if rating.student.grade_level == current_user.grade_level
     end
     unless ratings_array.empty?

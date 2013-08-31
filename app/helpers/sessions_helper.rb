@@ -52,8 +52,4 @@ module SessionsHelper
     redirect_to(root_url) unless current_user.admin?
   end
 
-  def active?
-    current_user.active
-  end
-
 end

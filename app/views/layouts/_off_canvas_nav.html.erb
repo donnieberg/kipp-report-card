@@ -1,48 +1,60 @@
-<nav class="main-nav" id="main-nav">
+<nav class='main-nav' id='main-nav'>
   <% if signed_in? %>
     <%= gravatar_for current_user %>
     <ul>
-      <li class="user_name"><%= current_user.first_name %></li>
+      <li class='user_name'><%= current_user.first_name %></li>
       <li>
         <%= link_to root_path do %>
-        <div class="icon"><%=image_tag "shop_white.png"%></div>
-        <div class="navtext">Home</div>
+        <div class='icon'><%=image_tag 'shop_white.png'%></div>
+        <div class='navtext'>Home</div>
         <% end %>
       </li>
-    <% if current_user.type == 'Teacher' %>
-      <li><%= link_to users_path do %>
-        <div class="icon"><%=image_tag "pen_white.png"%></div>
-        <div class="navtext">Grade Students</div>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to dashboard_path do %>
-        <div class="icon"><%=image_tag "params_white.png"%></div>
-        <div class="navtext">My Dashboard</div>
-        <% end %>
-      </li>
-    <% else %>
-      <li><%= link_to user_categories_path(current_user) do %>
-        <div class="icon"><%=image_tag "pen_white.png"%></div>
-        <div class="navtext">My Report Card</div>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to user_ratings_path(current_user) do %>
-        <div class="icon"><%=image_tag "params_white.png"%></div>
-        <div class="navtext">My Dashboard</div>
-        <% end %>
-      </li>
-    <% end %>
+
+
+      <% if current_user.type == 'Teacher' %>  <!-------- TEACHER VIEW ---------->
+        <% if current_user.admin %>  <!-------- ADMIN VIEW ---------->
+          <li><%= link_to users_path do %>
+            <div class='icon'><%=image_tag 'user_white.png'%></div>
+            <div class='navtext'>All Users</div>
+            <% end %>
+          </li>
+        <% else %>
+          <li><%= link_to users_path do %>
+            <div class='icon'><%=image_tag 'pen_white.png'%></div>
+            <div class='navtext'>Grade Students</div>
+            <% end %>
+          </li>
+        <% end %>  <!-------- END ADMIN VIEW ---------->
+          <li>
+            <%= link_to dashboard_path do %>
+            <div class='icon'><%=image_tag 'params_white.png'%></div>
+            <div class='navtext'>My Dashboard</div>
+            <% end %>
+          </li>
+      <% else %>  <!-------- STUDENT VIEW ---------->
+          <li><%= link_to user_categories_path(current_user) do %>
+            <div class='icon'><%=image_tag 'pen_white.png'%></div>
+            <div class='navtext'>My Report Card</div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_ratings_path(current_user) do %>
+            <div class='icon'><%=image_tag 'params_white.png'%></div>
+            <div class='navtext'>My Dashboard</div>
+            <% end %>
+          </li>
+      <% end %>
+
       <li>
         <%= link_to edit_user_path(current_user) do %>
-        <div class="icon"><%=image_tag "settings_white.png"%></div>
-        <div class="navtext">Settings</div>
+        <div class='icon'><%=image_tag 'settings_white.png'%></div>
+        <div class='navtext'>Settings</div>
         <% end %>
       </li>
-      <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+      <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
   <% else %>
-    <li><%= link_to "Sign in", signin_path %></li>
+    <li><%= link_to 'Sign in', signin_path %></li>
+    <li><%= link_to 'Sign up', signup_path %></li>
   <% end %>
   </ul>
 </nav>
