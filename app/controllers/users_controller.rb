@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :show, :edit, :update]
-  before_filter :correct_user,   only: [:show, :edit, :update]
+  # before_filter :correct_user,   only: [:show, :edit, :update]
   before_filter :admin_user,     only: :destroy
+  before_filter :non_student_user, only: :index
 
-  def index
-    #params[:page] automatically given to me by gem
-    #@users = User.paginate(page: params[:page])
-    @all_students = Student.where(grade_level: current_user.grade_level).order("last_name ASC")
+  def index #admin/teacher view only
+    @all_students = Student.where(school_id: current_user.school_id).order("last_name ASC")
+    @grade_level_students = @all_students.select {|student| student.grade_level == current_user.grade_level }
     @users = User.where(school_id: current_user.school_id)
   end
 
@@ -60,6 +60,13 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def non_student_user
+      if current_user.type == 'Student'
+        redirect_to(root_url)
+        flash[:danger] = 'Only Teachers/Admins can see the Users Index page'
+      end
     end
 
 end

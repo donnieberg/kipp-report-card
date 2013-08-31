@@ -21,7 +21,7 @@ class RatingsController < ApplicationController
     #if all our ratings saved is true..
     if @saved_ratings_array.all? && @saved_ratings_array.length == CharStrength.all.length
       flash[:success] = "Successfully submitted Report Card!"
-      redirect_to users_path
+      redirect_to user_ratings_path
     else
       flash[:danger] = "Error in submitting Report Card"
       redirect_to user_categories_path(params[:user_id])

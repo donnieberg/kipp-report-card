@@ -11,7 +11,7 @@ School.create(name: "KIPP Heartwood", city:"San Francisco", state:"CA", grade_le
 #teachers (avand belongs to KIPP SF Bay)
 User.create(first_name: "Avand", last_name:"Amiri", email:"avand@gmail.com", school_id: 1, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1111)
 User.create(first_name: "Jackie", last_name:"Herrlin", email:"jackie@gmail.com", school_id: 1, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:2222)
-User.create(first_name: "Anil", last_name:"Bridpal", email:"anil@gmail.com", school_id: 2, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:3333)
+User.create(first_name: "Anil", last_name:"Bridpal", email:"anil@gmail.com", school_id: 2, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:3333, admin:true)
 User.create(first_name: "Markus", last_name:"Guehrs", email:"markus@gmail.com", school_id: 2, type: "Teacher", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:4444)
 
 #courses (Avand's courses)

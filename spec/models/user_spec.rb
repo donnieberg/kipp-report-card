@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(first_name: "James", last_name:"Dean", email:"james@james.org", password: "foobar", password_confirmation: "foobar", school_id: 1, type:"Teacher", grade_level:7)
+    @user = User.new(first_name: "James", last_name:"Dean", email:"james@james.org", password: "foobar", password_confirmation: "foobar", school_id: 1, type:"Teacher", grade_level:7, person_id:143258, admin: false)
   end
 
   subject { @user }
@@ -12,7 +12,9 @@ describe User do
   it { should respond_to(:last_name) }
   it { should respond_to(:email) }
   it { should respond_to(:school_id) }
+  it { should respond_to(:person_id) }
   it { should respond_to(:type) }
+  it { should respond_to(:admin) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -22,11 +24,6 @@ describe User do
 
   it { should have_many(:ratings) }
   it { should be_valid }
-
-  # describe "when User is TEacher" do
-  #   before { @user.save }
-  #   it { should have_many(:courses) }
-  # end
 
   describe "when name is blank" do
     before { @user.first_name = " " }

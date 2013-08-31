@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password,
-                  :password_confirmation, :school_id, :type, :grade_level, :person_id
+                  :password_confirmation, :school_id, :type, :grade_level, :person_id, :admin
+
   belongs_to :school
   has_many :ratings, foreign_key: "rater_id"
 
@@ -8,19 +9,15 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
-  validates :first_name, presence: true, length: { maximum: 50 }
-  validates :last_name, presence: true, length: { maximum: 50 }
+  validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
   validates :password, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
-  validates :school_id, presence: true
-  validates :grade_level, presence: true
-  validates :person_id, presence: true
+  validates :password_confirmation, :school_id, :grade_level, :person_id, presence: true
 
+  has_secure_password
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
