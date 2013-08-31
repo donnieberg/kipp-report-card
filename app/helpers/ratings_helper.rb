@@ -28,7 +28,8 @@ module RatingsHelper
   def calc_average(ratings_array)
     unless ratings_array.empty?
       ratings = ratings_array.map { |rating| rating.number.to_f }
-      ratings.reduce(:+)/ratings.length
+      average = ratings.reduce(:+)/ratings.length
+      average.round(2)
     else
       return []
     end

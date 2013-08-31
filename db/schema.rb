@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130830230812) do
+ActiveRecord::Schema.define(:version => 20130831212154) do
 
   create_table "categories", :force => true do |t|
     t.string   "content"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(:version => 20130830230812) do
     t.string   "rater_type"
     t.integer  "student_id"
     t.integer  "char_strength_id"
-    t.integer  "quarter"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "academic_quarter"
   end
 
   create_table "schools", :force => true do |t|
