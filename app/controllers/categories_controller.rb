@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @student = Student.find(params[:user_id])
+    @current_quarter = determine_academic_quarter
   end
 
   def new
@@ -49,4 +50,11 @@ class CategoriesController < ApplicationController
         flash[:danger] = "You do not have access to view other students' report cards"
       end
     end
+
+    def determine_academic_quarter
+      q1 = Date.parse("2013-08-01")..Date.parse("2013-12-31")
+      q1.include?(Date.today) ? 1 : 2
+    end
 end
+
+

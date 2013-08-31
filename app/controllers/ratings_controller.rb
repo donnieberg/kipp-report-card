@@ -16,6 +16,7 @@ class RatingsController < ApplicationController
       @rating.rater_type = current_user.type
       @rating.rater_id = current_user.id
       @rating.student_id = params[:user_id]
+      @rating.academic_quarter = params[:academic_quarter].to_i
       @rating.save
     end
     #if all our ratings saved is true..

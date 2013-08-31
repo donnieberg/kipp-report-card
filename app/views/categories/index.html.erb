@@ -1,12 +1,12 @@
 <div class="page-heading">
-  <h1>Report Card | <span class="lime-text"><%= gravatar_for @student %> <%= @student.first_name %> <%= @student.last_name %></span></h1>
+  <h1>Report Card | Academic Quarter: <%= @current_quarter %></h1>
+
+    <h1><span class="lime-text"><%= gravatar_for @student %> <%= @student.first_name %> <%= @student.last_name %></span></h1>
 </div>
 
 
 <!--  Sends @student.id with form so that in url, it'd look something like /user_id?=1 so in controller, we can acces it with params[:user]-->
-<%= form_tag(user_ratings_path(user_id: @student.id)) %>
-  <%= check_box_tag 'rock', 'rock music' %>
-
+<%= form_tag(user_ratings_path(user_id: @student.id, academic_quarter: @current_quarter)) %>
   <% @categories.each do |category| %>
     <div>
     <h3><%= category.content %></h3>
