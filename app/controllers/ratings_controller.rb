@@ -2,7 +2,14 @@ class RatingsController < ApplicationController
 
   def index #individual student's ratings
     @student = Student.find(params[:user_id])
+    @cumulative_average = cumulative_average(@student)
     @categories = Category.all
+    @current_quarter = determine_academic_quarter
+    @total_raters = total_graders(@student)
+    # categories_averages = @categories.map do |category|
+    #   { category.content => category_average_student(category) }
+    # end
+    # @categories_averages = categories_averages.sort_by{|x, y| y}
   end
 
   def new

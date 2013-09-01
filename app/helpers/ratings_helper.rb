@@ -16,6 +16,16 @@ module RatingsHelper
     return calc_average(ratings_array)
   end
 
+  def cumulative_average(student)
+    student_ratings = student.self_ratings.map {|rating| rating.number.to_f }
+    (student_ratings.reduce(:+)/student_ratings.length).round(2)
+  end
+
+  def total_graders(student)
+    raters = student.self_ratings.map {|rating| rating.rater_id }
+    raters.uniq!.length
+  end
+
 #for all teacher's students
   def category_average_teachersstudents(category, rater_type=nil)
     ratings_array = category.ratings
@@ -24,6 +34,8 @@ module RatingsHelper
     end
     return calc_average(ratings_array)
   end
+
+
 
   def calc_average(ratings_array)
     unless ratings_array.empty?
