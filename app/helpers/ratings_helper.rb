@@ -27,11 +27,14 @@ module RatingsHelper
   end
 
   def data  #this parses the json request. then it goes to the ajax file
-    data = [
-            { y: 'Students', a: Student.all.length },
-            { y: 'Teachers', a: Teacher.all.length },
-            { y: 'Admin', a: User.where(admin: true)}
-    ]
+    @student = Student.find(params[:id])
+    data = Category.all.map do |category|
+      {
+        category: category.content,
+        student: category_average_student(category, "Student"),
+        teachers: category_average_student(category, "Teacher")
+      }
+    end
     render :json  => data
   end
 

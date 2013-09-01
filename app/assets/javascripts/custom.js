@@ -6,7 +6,8 @@ $(function () {
   $(".knob").knob();
 
   $.ajax(
-    '/data.json',     //anytime you see a route, check the route file.
+    // '/data.json',     //anytime you see a route, check the route file.
+    '/users/9/data.json',
     {                 // sent back here from the controller after the json's been grabbed
                       //jquery magic renders data into chart
       success: function(graph_data) {
@@ -18,9 +19,9 @@ $(function () {
         Morris.Bar({
           element: 'ratings_chart',
           data: graph_data,
-          xkey: 'y',
-          ykeys: ['a'],
-          labels: ['rating']
+          xkey: 'category',
+          ykeys: ['student', 'teachers'],
+          labels: ['Student', 'Teachers']
         });
       }
     }
