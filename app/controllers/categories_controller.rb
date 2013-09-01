@@ -52,7 +52,8 @@ class CategoriesController < ApplicationController
     end
 
     def determine_academic_quarter
-      q1 = Date.parse("2013-08-01")..Date.parse("2013-12-31")
+      current_year = Date.today.year
+      q1 = Date.parse("#{current_year}-08-01")..Date.parse("#{current_year}-12-31")
       q1.include?(Date.today) ? 1 : 2
     end
 end
