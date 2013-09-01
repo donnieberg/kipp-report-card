@@ -6,10 +6,6 @@ class RatingsController < ApplicationController
     @categories = Category.all
     @current_quarter = determine_academic_quarter
     @total_raters = total_graders(@student)
-    # categories_averages = @categories.map do |category|
-    #   { category.content => category_average_student(category) }
-    # end
-    # @categories_averages = categories_averages.sort_by{|x, y| y}
   end
 
   def new

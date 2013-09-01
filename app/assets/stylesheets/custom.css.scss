@@ -36,6 +36,9 @@ body {
 h1,h2,h3,h4 {
   font-family: 'Lato', sans-serif;
 }
+h1, h2 {
+  text-align: center;
+}
 .lime-text {
   color: $lime-green;
   font-weight: 400;

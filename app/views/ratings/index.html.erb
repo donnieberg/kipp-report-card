@@ -42,15 +42,20 @@
   </div>
 
   <hr class="col-md-12">
-
-
-
   <h2>Combined Teacher/Student</h2>
   <% @categories.each do |category| %>
-  <ul>
-    <li><%= category.content %> Combined Average Rating: <%= category_average_student(category) %></li>
-  </ul>
+  <div class="knobs col-md-3">
+    <h3><%= category.content %></h3>
+    <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_student(category) %>">
+  </div>
   <% end %>
+
+
+  <hr class="col-md-12">
+  <div class='chart col-md-12'></div>
+
+
+
 
   <h2>Combined Teachers</h2>
   <% @categories.each do |category| %>

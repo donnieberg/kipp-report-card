@@ -16,6 +16,8 @@ KippReportCard::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/ratings', to: 'ratings#index',        via: 'get' #rating for student
   match '/dashboard', to: 'ratings#teacher_dash',  via: 'get' #teacher's dashboard for all student ratings
+  get '/data.json' => 'ratings#data'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

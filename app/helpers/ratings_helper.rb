@@ -26,6 +26,15 @@ module RatingsHelper
     raters.uniq!.length
   end
 
+  def data  #this parses the json request. then it goes to the ajax file
+    data = [
+            { y: 'Students', a: Student.all.length },
+            { y: 'Teachers', a: Teacher.all.length },
+            { y: 'Admin', a: User.where(admin: true)}
+    ]
+    render :json  => data
+  end
+
 #for all teacher's students
   def category_average_teachersstudents(category, rater_type=nil)
     ratings_array = category.ratings
@@ -34,8 +43,6 @@ module RatingsHelper
     end
     return calc_average(ratings_array)
   end
-
-
 
   def calc_average(ratings_array)
     unless ratings_array.empty?
