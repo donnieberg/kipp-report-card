@@ -39,7 +39,7 @@ module RatingsHelper
   end
 
 #for all teacher's students
-  def category_average_teachersstudents(category, rater_type=nil)
+  def category_average_teachersstudents(category)
     ratings_array = category.ratings
     ratings_array.select! do |rating|
       rating if (rating.student.grade_level == current_user.grade_level) && (rating.student.school_id == current_user.school_id)

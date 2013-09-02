@@ -15,7 +15,7 @@ KippReportCard::Application.routes.draw do
   match '/signin', to: 'sessions#new',          via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/ratings', to: 'ratings#index',        via: 'get' #rating for student
-  match '/dashboard', to: 'ratings#teacher_dash',  via: 'get' #teacher's dashboard for all student ratings
+  match '/dashboard', to: 'ratings#dashboard',  via: 'get' #teacher's dashboard for all student ratings
   # get '/users/:id/data.json' => 'ratings#data'
   get '/users/:id/data.json' => 'ratings#data'
 
