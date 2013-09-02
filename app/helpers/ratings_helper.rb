@@ -4,7 +4,7 @@ module RatingsHelper
   end
 
 #for individual student
-  def category_average_student(category, rater_type=nil)
+  def category_average_student(category, rater_type=nil, quarter=nil)
     all_student_ratings = category.ratings.where(student_id:@student.id)
     if rater_type.nil?
       ratings_array = all_student_ratings
@@ -18,12 +18,12 @@ module RatingsHelper
 
   def cumulative_average(student)
     student_ratings = student.self_ratings.map {|rating| rating.number.to_f }
-    (student_ratings.reduce(:+)/student_ratings.length).round(2)
+    (student_ratings.reduce(:+)/student_ratings.length).round(1)
   end
 
-  def total_graders(student)
-    raters = student.self_ratings.map {|rating| rating.rater_id }
-    raters.uniq!.length
+  def all_graders(student)
+    raters = student.self_ratings.map {|rating| rating.rater }
+    raters.uniq!
   end
 
   def data  #this parses the json request. then it goes to the ajax file
@@ -51,7 +51,7 @@ module RatingsHelper
     unless ratings_array.empty?
       ratings = ratings_array.map { |rating| rating.number.to_f }
       average = ratings.reduce(:+)/ratings.length
-      average.round(2)
+      average.round(1)
     else
       return []
     end

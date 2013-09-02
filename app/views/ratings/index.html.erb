@@ -1,38 +1,17 @@
 <!-- -------- RATINGS PAGE FOR INDIVIDUAL STUDENT ONLY ---------- -->
 <div class="student-dashboard col-md-12">
-<% if current_user.type == "Teacher" %>
-  <!-- --------------------------------TEACHER VIEW------------------------------------- -->
-  <h1>Character Strength Averages for <%= @student.first_name %> <%= @student.last_name %></h1>
-
-  <h2>Combined Teacher/Student</h2>
-  <% @categories.each do |category| %>
-  <ul>
-    <li><%= category.content %> Combined Average Rating: <%= category_average_student(category) %></li>
-  </ul>
-  <% end %>
-  <h2>Combined Teachers</h2>
-  <% @categories.each do |category| %>
-  <ul>
-    <li><%= category.content %> Teachers Average Rating: <%= category_average_student(category, "Teacher") %></li>
-  </ul>
+  <% if current_user.type == "Teacher" %>
+    <h1>Character Strength Averages for <%= @student.first_name %> <%= @student.last_name %></h1>
+  <% else %>
+    <h1>My Character Strength Averages</h1>
   <% end %>
 
-  <h2>Student's Self Assessment</h2>
-  <% @categories.each do |category| %>
-  <ul>
-    <li>My <%= category.content %> Ratings: <%= category_average_student(category, "Student") %></li>
-  </ul>
-  <% end %>
-
-<% else %>
-  <!-- --------------------------------STUDENT VIEW------------------------------------- -->
-  <h1>My Character Strength Averages</h1>
 
   <div class="col-md-6">
     <h3>Report Card Overview</h3>
     <ul>
       <li>Academic Quarter: <%= @current_quarter %></li>
-      <li>Total Graders: <%= @total_raters %></li>
+      <li>Total Graders: <%= @total_raters.length %></li>
       <li>Student Name: <%= @student.first_name %> <%= @student.last_name %></li>
     </ul>
   </div>
@@ -42,7 +21,8 @@
   </div>
 
   <hr class="col-md-12">
-  <h2>Combined Teacher/Student</h2>
+
+  <h2>OVERALL AVERAGES</h2>
   <% @categories.each do |category| %>
   <div class="knobs col-md-3">
     <h3><%= category.content %></h3>
@@ -50,28 +30,37 @@
   </div>
   <% end %>
 
-
   <hr class="col-md-12">
+
+  <h2>TEACHER VS SELF-ASSESSMENT</h2>
   <div class='chart col-md-12'></div>
 
+  <hr class="col-md-12">
 
+  <h2>RAW DATA</h2>
+  <table class="footable" data-filter="#filter" data-page-size="5">
+    <thead>
+      <tr>
+        <th data-toggle="true">Character Strength</th>
+        <% @total_raters.each do |rater| %>
+          <th data-hide="phone" data-sort-ignore="true"><%= rater.first_name %> <%= rater.last_name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <% category.char_strengths.each do |char_strength| %>
+        <tr>
+          <td>
+            <%= char_strength.content %>
 
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 
-  <h2>Combined Teachers</h2>
-  <% @categories.each do |category| %>
-  <ul>
-    <li><%= category.content %> Teachers Average Rating: <%= category_average_student(category, "Teacher") %></li>
-  </ul>
-  <% end %>
-
-  <h2>My Ratings</h2>
-  <% @categories.each do |category| %>
-  <ul>
-    <li>My <%= category.content %> Ratings: <%= category_average_student(category, "Student") %></li>
-  </ul>
-  <% end %>
-
-<% end %>
 </div>
 
 

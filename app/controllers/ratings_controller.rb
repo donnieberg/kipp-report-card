@@ -1,11 +1,11 @@
 class RatingsController < ApplicationController
 
   def index #individual student's ratings
+    @categories = Category.all
     @student = Student.find(params[:user_id])
     @cumulative_average = cumulative_average(@student)
-    @categories = Category.all
     @current_quarter = determine_academic_quarter
-    @total_raters = total_graders(@student)
+    @total_raters = all_graders(@student)
   end
 
   def new
