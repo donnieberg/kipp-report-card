@@ -1,6 +1,6 @@
 $(function () {
 
-  var studentId = $('.studentId').html();
+  var userId = $('.userId').html();
 
   //Responsive Tables
   $('.footable').footable();
@@ -9,8 +9,9 @@ $(function () {
   $(".knob").knob();
 
   //Morris JS Bar Charts
+  //Individual student
   $.ajax(
-    '/users/' + studentId + '/data.json',
+    '/users/' + userId + '/data.json',
     {
       success: function(graph_data) {
         var container = $('.chart');
@@ -22,6 +23,25 @@ $(function () {
           xkey: 'category',
           ykeys: ['student', 'teachers'],
           labels: ['Student', 'Teachers']
+        });
+      }
+    }
+  );
+
+  //admin & teacher dashboard
+  $.ajax(
+    '/dashboard/' + userId + '/data.json',
+    {
+      success: function(graph_data) {
+        var container = $('.chart');
+        var colors = ['red','skyblue','green','gold'];
+        container.append('<div id="ratings_chart" class="graph" />');
+        Morris.Bar({
+          element: 'ratings_chart',
+          data: graph_data,
+          xkey: 'category',
+          ykeys: ['student', 'teachers'],
+          labels: ['Students', 'Teachers']
         });
       }
     }

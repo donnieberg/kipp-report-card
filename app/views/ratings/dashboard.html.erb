@@ -1,3 +1,4 @@
+<div class="userId"><%= current_user.id %></div>
 <h2>OVERALL AVERAGES</h2>
 <% @categories.each do |category| %>
 <div class="knobs col-md-3">
@@ -5,3 +6,9 @@
   <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_teachersstudents(category) %>">
 </div>
 <% end %>
+
+<hr class="col-md-12">
+
+<h2>TEACHER VS SELF-ASSESSMENT</h2>
+<div class='chart col-md-12'></div>
+

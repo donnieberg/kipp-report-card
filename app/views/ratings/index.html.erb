@@ -1,5 +1,5 @@
 <!-- -------- RATINGS PAGE FOR INDIVIDUAL STUDENT ONLY ---------- -->
-<div class="studentId"><%= @student.id %></div>
+<div class="userId"><%= @student.id %></div>
 <div class="student-dashboard col-md-12">
   <% if current_user.type == "Teacher" %>
     <h1>Character Strength Averages for <%= @student.first_name %> <%= @student.last_name %></h1>

@@ -39,13 +39,33 @@ module RatingsHelper
   end
 
 #for all teacher's students
-  def category_average_teachersstudents(category)
+  def category_average_teachersstudents(category, rater_type=nil, quarter=nil)
     ratings_array = category.ratings
     ratings_array.select! do |rating|
       rating if (rating.student.grade_level == current_user.grade_level) && (rating.student.school_id == current_user.school_id)
     end
+    if rater_type.nil?
+      ratings_array
+    elsif rater_type == "Teacher"
+      ratings_array = ratings_array.where(rater_type:"Teacher")
+    else
+      ratings_array = ratings_array.where(rater_type:"Student")
+    end
     return calc_average(ratings_array)
   end
+
+
+  def data_dashboard  #this parses the json request. then it goes to the ajax file
+    data = Category.all.map do |category|
+      {
+        category: category.content,
+        student: category_average_teachersstudents(category, "Student"),
+        teachers: category_average_teachersstudents(category, "Teacher")
+      }
+    end
+    render :json  => data
+  end
+
 
   def calc_average(ratings_array)
     unless ratings_array.empty?
@@ -56,4 +76,5 @@ module RatingsHelper
       return []
     end
   end
+
 end
