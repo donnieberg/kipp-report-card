@@ -8,13 +8,14 @@ class UsersController < ApplicationController
   before_filter :non_student_user, only: :index
 
   def index #admin/teacher view only
-    respond_to do |format|
-      format.html
-      format.json { render json: @users }
-    end
     @all_students = Student.where(school_id: current_user.school_id).order("last_name ASC")
     @grade_level_students = @all_students.select {|student| student.grade_level == current_user.grade_level }
     @users = User.where(school_id: current_user.school_id)
+    respond_to do |format|
+      format.html
+      format.json { render json: @users }
+      format.json { render json: @grade_level_students }
+    end
   end
 
   def new
@@ -59,12 +60,9 @@ class UsersController < ApplicationController
   #   respond_with @user.update_attribute(:admin, params[:admin])
   # end
 
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_url
-  end
-
+  # def destroy
+  #   respond_with User.destroy(params[:id])
+  # end
 
   private
     # Before filters
