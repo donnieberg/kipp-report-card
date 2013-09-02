@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
+  respond_to :json
+  respond_to :html
+
   before_filter :signed_in_user, only: [:index, :show, :edit, :update]
   # before_filter :correct_user,   only: [:show, :edit, :update]
   before_filter :admin_user,     only: :destroy
   before_filter :non_student_user, only: :index
 
   def index #admin/teacher view only
+    respond_to do |format|
+      format.html
+      format.json { render json: @users }
+    end
     @all_students = Student.where(school_id: current_user.school_id).order("last_name ASC")
     @grade_level_students = @all_students.select {|student| student.grade_level == current_user.grade_level }
     @users = User.where(school_id: current_user.school_id)
@@ -46,6 +53,11 @@ class UsersController < ApplicationController
     end
   end
 
+  #FROM ANGULAR COOKBOOK HOMEWORK--SAVE
+  # def update
+  #   @user = User.find(params[:id])
+  #   respond_with @user.update_attribute(:admin, params[:admin])
+  # end
 
   def destroy
     User.find(params[:id]).destroy
@@ -70,3 +82,6 @@ class UsersController < ApplicationController
     end
 
 end
+
+
+
