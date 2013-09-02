@@ -5,7 +5,12 @@ module RatingsHelper
 
 #for individual student
   def category_average_student(category, rater_type=nil, quarter=nil)
+    if quarter.nil?
       all_student_ratings = category.ratings.where(student_id:@student.id)
+    else
+      all_student_ratings = category.ratings.where(student_id:@student.id).where(academic_quarter: quarter)
+    end
+
     if rater_type.nil?
       ratings_array = all_student_ratings
     elsif rater_type == "Teacher"
@@ -16,7 +21,7 @@ module RatingsHelper
     return calc_average(ratings_array)
   end
 
-  def cumulative_average(student)
+  def cumulative_average(student) #for all ratings ever!
     student_ratings = student.self_ratings.map {|rating| rating.number.to_f }
     (student_ratings.reduce(:+)/student_ratings.length).round(1)
   end
