@@ -1,10 +1,24 @@
 app = angular.module("AngularUsers", ["ngResource"])
 
 app.factory "User", ["$resource", ($resource) ->
-  $resource("/users/:id", {id: "@id"}, {update: {method: "PUT"}})
+  $resource("/users/:id", {id: "@id"},
+    update:
+        method: "PUT"
+    )
 ]
 
-@AngularUsersCtrl = ["$scope", "User", "Student", ($scope, User, Student) ->
-  $scope.users = User.query()
-  $scope.students = Student.query()
+@AngularUsersCtrl = ["$scope", "User", "$http", ($scope, User, $http) ->
+  $scope.test = "test"
+  users = User.query() ->
+
+
+    $scope.users = users
+    $http.get('/get_users_by_admin')
+      .success (result) ->
+        $scope.admin_users = result
+
+    $http.get('/get_students_by_school')
+      .success (result) ->
+        $scope.students = result
 ]
+

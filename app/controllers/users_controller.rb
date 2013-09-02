@@ -11,9 +11,23 @@ class UsersController < ApplicationController
     @all_students = Student.where(school_id: current_user.school_id).order("last_name ASC")
     @grade_level_students = @all_students.select {|student| student.grade_level == current_user.grade_level }
     @users = User.where(school_id: current_user.school_id)
+  end
+
+  def get_users_by_admin
+    # all users at the admin's school
+    @users = User.where(school_id: current_user.school_id)
     respond_to do |format|
       format.html
       format.json { render json: @users }
+    end
+  end
+
+  def get_students_by_school
+    # all students at the teacher's school and in th teacher's grade level
+    @all_students = Student.where(school_id: current_user.school_id).order("last_name ASC")
+    @grade_level_students = @all_students.select {|student| student.grade_level == current_user.grade_level }
+    respond_to do |format|
+      format.html
       format.json { render json: @grade_level_students }
     end
   end
