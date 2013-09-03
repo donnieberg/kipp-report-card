@@ -73,6 +73,9 @@ html, body { min-height: 100%; }
     font-size: 32px;
     color: lighten($lime-green, 8%);
   }
+  a.sign-in {
+    font-size: 20px;
+  }
 }
 
 .page-wrap {
@@ -142,9 +145,10 @@ html, body { min-height: 100%; }
 
 #main-nav:target {
   width: 25%;
+  z-index: 9999px;
 }
 #main-nav:target + .page-wrap {
-  width: 75%;
+/*  width: 75%;*/
   .open-menu {
      display: none;
   }
@@ -232,7 +236,7 @@ html, body { min-height: 100%; }
   width: 30%;
 }
 .button.signup-button {
-  width: auto;
+  width: 60%;
 }
 
 /*----GETTING VALUE FOR Morris JS data only*/

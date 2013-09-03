@@ -1,5 +1,5 @@
-<nav class='main-nav' id='main-nav'>
-  <% if signed_in? %>
+<% if signed_in? %>
+  <nav class='main-nav' id='main-nav'>
     <%= gravatar_for current_user %>
     <ul>
       <li class='user_name'><%= current_user.first_name %></li>
@@ -52,12 +52,10 @@
         <% end %>
       </li>
       <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
-  <% else %>
-    <li><%= link_to 'Sign in', signin_path %></li>
-    <li><%= link_to 'Sign up', signup_path %></li>
+    </ul>
+  </nav>
   <% end %>
-  </ul>
-</nav>
+
 
 
 
