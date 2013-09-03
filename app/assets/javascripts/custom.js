@@ -28,7 +28,7 @@ $(function () {
     }
   );
 
-  //admin & teacher dashboard
+  //teacher dashboard
   $.ajax(
     '/dashboard/' + userId + '/data.json',
     {
