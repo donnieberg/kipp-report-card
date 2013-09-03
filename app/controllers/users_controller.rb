@@ -38,7 +38,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    binding.pry
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Character Labs, " + @user.first_name + "!"
@@ -50,15 +49,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if current_user.type == "Teacher"
+      @user = Teacher.find(params[:id])
+    else
+      @user = Student.find(params[:id])
+    end
   end
 
   def edit
-    @user = User.find(params[:id])
+    if current_user.type == "Teacher"
+      @user = Teacher.find(params[:id])
+    else
+      @user = Student.find(params[:id])
+    end
   end
 
   def update
-    @user = User.find(params[:id])
+    if current_user.type == "Teacher"
+      @user = Teacher.find(params[:id])
+    else
+      @user = Student.find(params[:id])
+    end
     @updated_user = @user.update_attributes(params[:user])
     if @updated_user
       flash[:success] = "Profile updated"

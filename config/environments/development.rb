@@ -39,6 +39,7 @@ KippReportCard::Application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
+    # :path => "/users/:id/:filename",
     :s3_credentials => {
       :bucket => "char-labs-avatar",
       :access_key_id => "AKIAJ3RCHAPTVMZTKVZQ",

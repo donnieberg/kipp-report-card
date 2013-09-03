@@ -45,8 +45,9 @@
     <% category.char_strengths.each do |char_strength| %>
       <tr>
         <td class="char-strength-td"><%= char_strength.content %></td>
+        <td><%= category_average_student(char_strength, nil, @current_quarter) %></td>
         <% raw_ratings_for_student(char_strength).each do |rating| %>
-          <td><%= rating.number %> | <%= rating.rater.first_name %></td>
+          <td><%= rating.number %><span class="rater-name"> | <%= rating.rater.first_name %> <%= rating.rater.last_name %></span></td>
         <% end %>
       </tr>
     <% end %>

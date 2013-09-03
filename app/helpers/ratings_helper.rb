@@ -3,6 +3,18 @@ module RatingsHelper
     current_user.ratings.where(student_id: student.id).length >= CharStrength.all.length
   end
 
+
+##For raw data for individual student
+  # def raw_data(char_strength, student)
+  #   student_char_ratings = student.self_ratings.where(char_strength_id: char_strength.id )
+  # end
+
+  # def raw_data_quarter(char_strength, student)
+  #   student_char_ratings = raw_data(char_strength, student).select {|rating| rating.academic_quarter == @current_quarter}
+  # end
+
+
+
 #for individual student
   def category_average_student(category, rater_type=nil, quarter=nil)
     if quarter.nil?
