@@ -23,7 +23,7 @@
 
   <hr class="col-md-12">
 
-  <h2>OVERALL AVERAGES</h2>
+  <h2>OVERALL AVERAGES (cumulative)</h2>
   <% @categories.each do |category| %>
   <div class="knobs col-md-3">
     <h3><%= category.content %></h3>
@@ -33,34 +33,27 @@
 
   <hr class="col-md-12">
 
-  <h2>TEACHER VS SELF-ASSESSMENT</h2>
+  <h2>TEACHER VS SELF-ASSESSMENT (cumulative)</h2>
   <div class='chart col-md-12'></div>
 
   <hr class="col-md-12">
 
-  <h2>RAW DATA</h2>
+  <h2>RAW DATA (for current quarter)</h2>
+  <% @categories.each do |category| %>
   <table class="footable" data-filter="#filter" data-page-size="5">
-    <thead>
+  <tr><td><%= category.content %></td></tr>
+    <% category.char_strengths.each do |char_strength| %>
       <tr>
-        <th data-toggle="true">Character Strength</th>
-        <% @total_raters.each do |rater| %>
-          <th data-hide="phone" data-sort-ignore="true"><%= rater.first_name %> <%= rater.last_name %></th>
+        <td class="char-strength-td"><%= char_strength.content %></td>
+        <% raw_ratings_for_student(char_strength).each do |rating| %>
+          <td><%= rating.number %> | <%= rating.rater.first_name %></td>
         <% end %>
       </tr>
-    </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <% category.char_strengths.each do |char_strength| %>
-        <tr>
-          <td>
-            <%= char_strength.content %>
+    <% end %>
 
-          </td>
-        </tr>
-        <% end %>
-      <% end %>
-    </tbody>
   </table>
+  <% end %>
+
 
 </div>
 

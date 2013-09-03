@@ -190,6 +190,16 @@ html, body { min-height: 100%; }
     background:transparent;
   }
 }
+
+
+/*----RAW data tables for student's character strength data-----------*/
+
+.char-strength-td {
+  width: 50%;
+}
+
+
+
 /* --------------MISC--------------------------- */
 
 .debug_dump {
@@ -229,7 +239,9 @@ html, body { min-height: 100%; }
 .userId {
   display:none;
 }
-/*----GETTING VALUE FOR Morris JS data only*/
+
+
+
 
 
 

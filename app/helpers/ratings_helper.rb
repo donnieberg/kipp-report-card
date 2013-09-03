@@ -31,6 +31,12 @@ module RatingsHelper
     raters.uniq!
   end
 
+  #For student's raw data
+  def raw_ratings_for_student(char_strength)
+    char_strength.ratings.where(academic_quarter: @current_quarter).where(student_id: @student.id)
+  end
+
+
   def data  #this parses the json request. then it goes to the ajax file
     @student = Student.find(params[:id])
     data = Category.all.map do |category|
