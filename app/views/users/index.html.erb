@@ -1,13 +1,7 @@
-<div class="user-table" ng-controller="AngularUsersCtrl">
-  <input type="text" ng-model="search" class="search-query" placeholder="Search">
-
+<div ng-controller="AngularUsersCtrl">
 <% if current_user.admin %>
-
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
-
 <h1>All Users at <%= current_user.school.name %></h1>
+  <input type="text" ng-model="search" class="search-query" placeholder="Search">
   <table class="footable" data-filter="#filter" data-page-size="5">
     <thead>
       <tr>
@@ -28,7 +22,7 @@
         <td><%#= user.grade_level %></td>
       </tr>
       <%# end %> -->
-      <tr ng-repeat="user in users | filter:search">
+      <tr ng-repeat="user in admin_users | filter:search">
         <td> {{ user.last_name }} </td>
         <td> {{ user.first_name }} </td>
         <td> {{ user.type }} </td>
@@ -37,9 +31,6 @@
       </tr>
     </tbody>
   </table>
-
-
-
 
 <% elsif current_user.type == 'Teacher' %>
 <h1>My Students</h1>
@@ -54,27 +45,26 @@
       </tr>
     </thead>
     <tbody>
-<!--       <%# @grade_level_students.each do |student| %>
+    <% @grade_level_students.each do |student| %>
       <tr>
-        <td><%#= student.last_name %></td>
-        <td><%#= student.first_name %></td>
-        <td><%#= student.person_id %></td>
-        <td><%#= student.grade_level %></td>
-        <%# if completed_report_card?(student) %>
-          <td><%#= link_to "COMPLETED:View data", user_ratings_path(student) %></td>
-        <%# else %>
-          <td><%#= link_to "Grade Student", user_categories_path(student) %></td>
-        <%# end %>
+        <td><%= student.last_name %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.person_id %></td>
+        <td><%= student.grade_level %></td>
+        <% if completed_report_card?(student) %>
+          <td><%= link_to "COMPLETED:View data", user_ratings_path(student) %></td>
+        <% else %>
+          <td><%= link_to "Grade Student", user_categories_path(student) %></td>
+        <% end %>
       </tr>
-      <%# end %> -->
-      <tr ng-repeat="user in users | filter:search">
-        <td> {{ user.last_name }} </td>
-        <td> {{ user.first_name }} </td>
-        <td> {{ user.person_id }} </td>
-        <td> {{ user.grade_level }} </td>
-      </tr>
-
-
+      <% end %>
+<!--       <tr ng-repeat="student in students | filter:search">
+        <td> {{ student.last_name }} </td>
+        <td> {{ student.first_name }} </td>
+        <td> {{ student.person_id }} </td>
+        <td> {{ student.grade_level }} </td>
+        <td> {{ student.ratings }} </td>
+      </tr> -->
     </tbody>
   </table>
 

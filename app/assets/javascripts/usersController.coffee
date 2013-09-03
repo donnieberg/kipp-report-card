@@ -8,15 +8,11 @@ app.factory "User", ["$resource", ($resource) ->
 ]
 
 @AngularUsersCtrl = ["$scope", "User", "$http", ($scope, User, $http) ->
-  $scope.test = "test"
-  users = User.query() ->
-
-
+  users = User.query ->
     $scope.users = users
     $http.get('/get_users_by_admin')
       .success (result) ->
         $scope.admin_users = result
-
     $http.get('/get_students_by_school')
       .success (result) ->
         $scope.students = result
