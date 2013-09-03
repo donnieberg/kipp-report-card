@@ -6,8 +6,8 @@
     <div class="form-group">
 <!--       User Type <%#= f.select :type, options_for_select(["Teacher", "Student"]) %> -->
       User Type:
-      <%= f.check_box(:type, {}, checked_value="Teacher") %> Teacher
-      <%= f.check_box(:type, {}, checked_value="Student") %> Student
+      <%= f.check_box(:type, {}, "Teacher", "Student") %> Teacher
+      <%= f.check_box(:type, {}, "Student", "Teacher") %> Student
     </div>
     <div class="form-group">
       Grade Level <%= f.select :grade_level, options_for_select([5, 6, 7, 8]) %>
