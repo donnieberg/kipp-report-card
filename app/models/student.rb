@@ -5,4 +5,8 @@ class Student < User
   has_many :teachers, through: :ratings, source: :rater, conditions: "type = 'Teacher'"
   has_many :self_ratings, class_name:"Rating", foreign_key:"student_id"
 
+  def self.model_name
+    User.model_name
+  end
+
 end

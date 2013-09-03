@@ -1,7 +1,7 @@
 <div class="page-heading">
   <h1>Report Card | Academic Quarter: <%= @current_quarter %></h1>
 
-    <h1><span class="lime-text"><%= gravatar_for @student %> <%= @student.first_name %> <%= @student.last_name %></span></h1>
+    <h1><span class="lime-text"><%= image_tag @user.avatar.url, class:"gravatar" %> <%= @student.first_name %> <%= @student.last_name %></span></h1>
 </div>
 
 

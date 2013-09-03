@@ -33,9 +33,13 @@ module RatingsHelper
     return calc_average(ratings_array)
   end
 
-  def cumulative_average(student) #for all ratings ever!
-    student_ratings = student.self_ratings.map {|rating| rating.number.to_f }
-    (student_ratings.reduce(:+)/student_ratings.length).round(1)
+  def cumulative_average(student, quarter=nil)
+    if quarter.nil?
+      student_ratings = student.self_ratings.map {|rating| rating.number.to_f }
+    else
+      student_ratings = student.self_ratings.where(academic_quarter: quarter).map {|rating| rating.number.to_f }
+    end
+      (student_ratings.reduce(:+)/student_ratings.length).round(1)
   end
 
   def all_graders(student)
@@ -44,8 +48,12 @@ module RatingsHelper
   end
 
   #For student's raw data
-  def raw_ratings_for_student(char_strength)
-    char_strength.ratings.where(academic_quarter: @current_quarter).where(student_id: @student.id)
+  def raw_ratings_for_student(char_strength, quarter=nil)
+    if quarter.nil?
+      char_strength.ratings.where(student_id: @student.id)
+    else
+      char_strength.ratings.where(academic_quarter: quarter).where(student_id: @student.id)
+    end
   end
 
 
@@ -54,8 +62,8 @@ module RatingsHelper
     data = Category.all.map do |category|
       {
         category: category.content,
-        student: category_average_student(category, "Student"),
-        teachers: category_average_student(category, "Teacher")
+        student: category_average_student(category, "Student", 1),
+        teachers: category_average_student(category, "Teacher", 1)
       }
     end
     render :json  => data
@@ -86,8 +94,8 @@ module RatingsHelper
     data = Category.all.map do |category|
       {
         category: category.content,
-        student: category_average_teachersstudents(category, "Student"),
-        teachers: category_average_teachersstudents(category, "Teacher")
+        student: category_average_teachersstudents(category, "Student", 1),
+        teachers: category_average_teachersstudents(category, "Teacher", 1)
       }
     end
     render :json  => data

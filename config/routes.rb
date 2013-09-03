@@ -22,6 +22,7 @@ KippReportCard::Application.routes.draw do
   get '/get_users_by_admin' => 'users#get_users_by_admin'
   get '/get_students_by_school' => 'users#get_students_by_school'
 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

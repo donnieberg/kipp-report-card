@@ -49,32 +49,20 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.type == "Teacher"
-      @user = Teacher.find(params[:id])
-    else
-      @user = Student.find(params[:id])
-    end
+    @user = User.find(params[:id])
   end
 
   def edit
-    if current_user.type == "Teacher"
-      @user = Teacher.find(params[:id])
-    else
-      @user = Student.find(params[:id])
-    end
+    @user = User.find(params[:id])
   end
 
   def update
-    if current_user.type == "Teacher"
-      @user = Teacher.find(params[:id])
-    else
-      @user = Student.find(params[:id])
-    end
+    @user = User.find(params[:id])
     @updated_user = @user.update_attributes(params[:user])
     if @updated_user
       flash[:success] = "Profile updated"
-      # sign_in @user
-      # redirect_to @user
+      sign_in @user
+      redirect_to @user
     else
       flash[:danger] = "Error in updating profile"
       render :new

@@ -1,6 +1,6 @@
 <% if signed_in? %>
   <nav class='main-nav' id='main-nav'>
-    <%= gravatar_for current_user %>
+    <%= image_tag @user.avatar.url, class:"gravatar" %>
     <ul>
       <li class='user_name'><%= current_user.first_name %></li>
       <li>
