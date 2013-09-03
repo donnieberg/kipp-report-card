@@ -34,4 +34,16 @@ KippReportCard::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "char-labs-avatar",
+      :access_key_id => "AKIAJ3RCHAPTVMZTKVZQ",
+      :secret_access_key => "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",
+      :s3_host_name => 's3-us-west-1.amazonaws.com'
+    }
+  }
 end

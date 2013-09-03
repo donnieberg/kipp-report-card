@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password,
-                  :password_confirmation, :school_id, :type, :grade_level, :person_id, :admin
+                  :password_confirmation, :school_id, :type, :grade_level, :person_id, :admin, :avatar
 
   belongs_to :school
   has_many :ratings, foreign_key: "rater_id"
@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
   validates :password_confirmation, :school_id, :grade_level, :person_id, presence: true
 
   has_secure_password
+
+  has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
