@@ -52,6 +52,9 @@ li {
 hr {
   padding: 40px;
 }
+.content {
+  padding: 10%;
+}
 /*-----------------------STart off-canvas nav bar-----------------------*/
 
 html, body { min-height: 100%; }
@@ -135,10 +138,6 @@ html, body { min-height: 100%; }
   }
 }
 
-.content {
-  padding: 10%;
-}
-
 .close-menu {
   display: none;
 }
@@ -159,6 +158,9 @@ html, body { min-height: 100%; }
   .main-header {
     width: 75%;
     left: 25%;
+  }
+  .content {
+    padding: 10% 2%;
   }
 }
 /*-----------------------end off-canvas nav bar-----------------------*/
@@ -210,7 +212,14 @@ html, body { min-height: 100%; }
 .footable {
   background: #fff;
 }
-
+.knobs {
+  text-align: center;
+}
+.cat-content {
+  background: #43464D;
+  color: #fff;
+  border: none;
+}
 /* --------------MISC--------------------------- */
 
 .debug_dump {
@@ -250,9 +259,6 @@ html, body { min-height: 100%; }
 .userId, .currentQuarter {
   display:none;
 }
-
-
-
 
 
 

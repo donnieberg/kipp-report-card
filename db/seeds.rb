@@ -32,8 +32,8 @@ User.create(first_name: "Lior", last_name:"Bendat", email:"lior@gmail.com", scho
 #Categories
 Category.create(content:"Zest")
 Category.create(content:"Grit")
-Category.create(content:"Self Control-School Work")
-Category.create(content:"Self Control-Interpersonal")
+Category.create(content:"School Work")
+Category.create(content:"Interpersonal")
 Category.create(content:"Optimism")
 Category.create(content:"Gratitude")
 Category.create(content:"Social Intelligence")

@@ -4,7 +4,7 @@
     <ul>
       <li>Academic Quarter: 1 </li>
       <li>Total Graders: <%= all_graders(@student, 1).length %></li>
-      <li>Student Name: <%= @student.first_name %> <%= @student.last_name %></li>
+      <li>Student Name: <%= @student.first_name %> <span class="student-last-name"><%= @student.last_name %></span></li>
     </ul>
   </div>
   <div class="col-md-6">
@@ -29,20 +29,21 @@
   <hr class="col-md-12">
 
   <h2>QUARTER 1 RAW DATA</h2>
+<table class="footable raw-data" data-filter="#filter" data-page-size="5">
+   <tr><td></td></tr>
   <% @categories.each do |category| %>
-  <table class="footable" data-filter="#filter" data-page-size="5">
-  <tr><td><%= category.content %></td></tr>
+  <tr><td class="cat-content"><%= category.content %></td><td class="cat-content"><%= category_average_student(category, nil, 1) %></td><td class="cat-content"></td><td class="cat-content"></td></tr>
     <% category.char_strengths.each do |char_strength| %>
       <tr>
         <td class="char-strength-td"><%= char_strength.content %></td>
         <td><%= category_average_student(char_strength, nil, 1) %></td>
         <% raw_ratings_for_student(char_strength, 1).each do |rating| %>
-          <td><%= rating.number %><span class="rater-name"> | <%= rating.rater.last_name %></span></td>
+          <td><%= rating.number %><span class="rater-name"><%= rating.rater.last_name %></span></td>
         <% end %>
       </tr>
     <% end %>
 
-  </table>
-  <% end %>
 
+  <% end %>
+  </table>
 
