@@ -47,12 +47,5 @@ $(function () {
     }
   );
 
-  $.ajax({
-    url: "quarter1.html",
-    context: document.body
-  }).done(function() {
-    $('.quarter-dashboard').html("<%= render :partial => 'quarter1' %>");
-  });
-
 });
 

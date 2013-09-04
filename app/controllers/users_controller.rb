@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   before_filter :non_student_user, only: :index
 
   def index #admin/teacher view only
+    @user = current_user
     @all_students = Student.where(school_id: current_user.school_id).order("last_name ASC")
     @grade_level_students = @all_students.select {|student| student.grade_level == current_user.grade_level }
     @users = User.where(school_id: current_user.school_id)

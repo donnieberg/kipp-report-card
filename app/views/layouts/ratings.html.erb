@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="AngularUsers">
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+</head>
+<body>
+  <%= render 'layouts/off_canvas_nav' %>
+  <div class="page-wrap">
+    <%= render 'layouts/header' %>
+      <div class="content">
+      <%= render 'layouts/flashMessages' %>
+        <% if @student.nil? %>
+        <div class="student-dashboard col-md-12">
+          <%= yield %>
+          <%= debug(params) if Rails.env.development? %>
+        </div>
+        <% else %>
+        <div class="userId"><%= @student.id %></div>
+        <div class="student-dashboard col-md-12">
+          <%= link_to "Quarter 1", "/users/" + @student.id.to_s + "/q1/ratings" %>
+          <%= link_to "Quarter 2", "/users/" + @student.id.to_s + "/q2/ratings" %>
+          <%= link_to "Cumulative", "/users/" + @student.id.to_s + "/cumulative/ratings" %>
+          <% if current_user.type == "Teacher" %>
+            <h1>Character Strength Averages for <%= @student.first_name %> <%= @student.last_name %></h1>
+          <% else %>
+            <h1>My Character Strength Averages</h1>
+          <% end %>
+
+          <%= yield %>
+          <%= debug(params) if Rails.env.development? %>
+        </div>
+        <% end %>
+      </div>
+
+  </div>
+</body>
+</html>

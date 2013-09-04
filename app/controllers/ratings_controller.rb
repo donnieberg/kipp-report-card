@@ -35,6 +35,30 @@ class RatingsController < ApplicationController
 
   def dashboard
     @categories = Category.all
+    @user = current_user
   end
 
+  def quarter1
+    @user = current_user
+    @categories = Category.all
+    @student = Student.find(params[:id])
+    @current_quarter = determine_academic_quarter
+    @total_raters = all_graders(@student)
+  end
+
+  def quarter2
+    @user = current_user
+    @categories = Category.all
+    @student = Student.find(params[:id])
+    @current_quarter = determine_academic_quarter
+    @total_raters = all_graders(@student)
+  end
+
+  def cumulative
+    @user = current_user
+    @categories = Category.all
+    @student = Student.find(params[:id])
+    @current_quarter = determine_academic_quarter
+    @total_raters = all_graders(@student)
+  end
 end

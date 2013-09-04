@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   before_filter :admin_user, only: [:edit, :update, :destroy]
 
   def index
+    @user = current_user
     @categories = Category.all
     @student = Student.find(params[:user_id])
     @current_quarter = determine_academic_quarter

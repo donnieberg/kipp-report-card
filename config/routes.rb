@@ -19,9 +19,14 @@ KippReportCard::Application.routes.draw do
   get '/users/:id/data.json' => 'ratings#data'
   get '/dashboard/:id/data.json' => 'ratings#data_dashboard'
 
+  ##angular
   get '/get_users_by_admin' => 'users#get_users_by_admin'
   get '/get_students_by_school' => 'users#get_students_by_school'
 
+  ##render partials from ratings.html.erb in layouts
+  get '/users/:id/q1/ratings' => 'ratings#quarter1'
+  get '/users/:id/q2/ratings' => 'ratings#quarter2'
+  get '/users/:id/cumulative/ratings' => 'ratings#cumulative'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
