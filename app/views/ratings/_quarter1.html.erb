@@ -1,22 +1,21 @@
+<div class="currentQuarter">1</div>
 
-<div class="col-md-6">
+  <div class="col-md-8 report-card-header">
     <h3>Report Card Overview</h3>
-    <ul>
-      <li>Academic Quarter: 1 </li>
-      <li>Total Graders: <%= all_graders(@student, 1).length %></li>
-      <li>Student Name: <%= @student.first_name %> <span class="student-last-name"><%= @student.last_name %></span></li>
-    </ul>
+      <p><span class="col-md-4">Academic Quarter:</span> 1 </p>
+      <p><span class="col-md-4">Total Graders:</span> <%= all_graders(@student, 1).length %></p>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <h3>QUARTER 1 Grade Point</h3>
     <h1><%= cumulative_average(@student, 1) %></h1>
   </div>
+
 
   <hr class="col-md-12">
 
   <h2>QUARTER 1 AVERAGES</h2>
   <% @categories.each do |category| %>
-  <div class="knobs col-md-3">
+  <div class="knobs col-xs-6 col-md-3">
     <h3><%= category.content %></h3>
     <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_student(category, nil, 1) %>">
   </div>
@@ -30,20 +29,32 @@
 
   <h2>QUARTER 1 RAW DATA</h2>
 <table class="footable raw-data" data-filter="#filter" data-page-size="5">
-   <tr><td></td></tr>
+   <thead>
+    <tr>
+      <th data-sort-ignore="true">Category</th>
+      <th data-sort-ignore="true">Average</th>
+      <th data-hide="phone,tablet" data-sort-ignore="true"></th>
+      <th data-hide="phone,tablet" data-sort-ignore="true"></th>
+    </tr>
+   </thead>
   <% @categories.each do |category| %>
-  <tr><td class="cat-content"><%= category.content %></td><td class="cat-content"><%= category_average_student(category, nil, 1) %></td><td class="cat-content"></td><td class="cat-content"></td></tr>
+  <tbody>
+  <tr>
+    <td class="cat-content"><%= category.content %></td>
+    <td class="cat-content"><%= category_average_student(category, nil, 1) %></td>
+    <td class="cat-content"></td>
+    <td class="cat-content"></td>
+  </tr>
     <% category.char_strengths.each do |char_strength| %>
       <tr>
         <td class="char-strength-td"><%= char_strength.content %></td>
         <td><%= category_average_student(char_strength, nil, 1) %></td>
         <% raw_ratings_for_student(char_strength, 1).each do |rating| %>
-          <td><%= rating.number %><span class="rater-name"><%= rating.rater.last_name %></span></td>
+          <td><%= rating.number %> - <%= rating.rater.last_name %></td>
         <% end %>
       </tr>
     <% end %>
-
-
   <% end %>
+  </tbody>
   </table>
 

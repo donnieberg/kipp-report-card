@@ -1,4 +1,14 @@
-<h1>
+<div class="col-md-6 col-md-offset-3 user-show">
   <%= image_tag @user.avatar.url, class:"gravatar" %>
-  <%= @user.first_name %>
-</h1>
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <hr>
+  <p><span class="col-md-4">Email:</span> <%= @user.email %></p>
+  <hr>
+  <p><span class="col-md-4">School:</span> <%= @user.school.name %></p>
+  <hr>
+  <p><span class="col-md-4">Type:</span> <%= @user.type %></p>
+  <hr>
+  <p><span class="col-md-4">School ID:</span> <%= @user.person_id %></p>
+  <hr>
+  <%= link_to "Edit Profile", edit_user_path, class: "button edit-btn" %>
+</div>

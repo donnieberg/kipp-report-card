@@ -14,32 +14,32 @@
   <%= render 'layouts/off_canvas_nav' %>
   <div class="page-wrap">
     <%= render 'layouts/header' %>
-      <div class="content">
+      <div class="content ratings-index">
       <%= render 'layouts/flashMessages' %>
+        <% if current_user.type == "Teacher" %>
+          <h1><%= image_tag @student.avatar.url, class:"gravatar" %> <%= @student.first_name %> <%= @student.last_name %></h1>
+        <% else %>
+          <h1>My Character Strength Averages</h1>
+        <% end %>
+
+        <div class="quarter-btn-group">
         <% if @student.nil? %>
-        <div class="student-dashboard col-md-12">
           <%= link_to "Quarter 1", "/dashboard/q1/ratings" %>
           <%= link_to "Quarter 2", "/dashboard/q2/ratings" %>
           <%= link_to "Cumulative", "/dashboard/cumulative/ratings" %>
 
           <%= yield %>
           <%= debug(params) if Rails.env.development? %>
-        </div>
         <% else %>
         <div class="userId"><%= @student.id %></div>
-        <div class="student-dashboard col-md-12">
           <%= link_to "Quarter 1", "/users/" + @student.id.to_s + "/q1/ratings", class:"button quarter-btn" %>
           <%= link_to "Quarter 2", "/users/" + @student.id.to_s + "/q2/ratings", class:"button quarter-btn" %>
           <%= link_to "Cumulative", "/users/" + @student.id.to_s + "/cumulative/ratings", class:"button quarter-btn" %>
-          <% if current_user.type == "Teacher" %>
-            <h1>Character Strength Averages for <%= @student.first_name %> <%= @student.last_name %></h1>
-          <% else %>
-            <h1>My Character Strength Averages</h1>
-          <% end %>
-
+        </div>
+        <hr>
           <%= yield %>
           <%= debug(params) if Rails.env.development? %>
-        </div>
+
         <% end %>
       </div>
 

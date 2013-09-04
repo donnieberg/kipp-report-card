@@ -27,18 +27,19 @@ input {
 /*-------------------DONIELLE CUSTOM STYLES----------------------------------------*/
 $lime-green: #79a002;
 $dirty-brown: #886A08;
+$light-blue: rgb(135, 206, 235);
+$grey: #b1aea6;
 
 body {
   font:300 1.8em 'Lato', sans-serif;
-  color: #b1aea6;
+  color: $grey;
   background: #fffcf5;
 }
 h1,h2,h3,h4 {
   font-family: 'Lato', sans-serif;
+  color: darken($grey, 10%);
 }
-h1, h2 {
-  text-align: center;
-}
+
 .lime-text {
   color: $lime-green;
   font-weight: 400;
@@ -50,7 +51,10 @@ li {
   list-style: none;
 }
 hr {
-  padding: 40px;
+  color: #999;
+  .divider {
+    padding: 40px;
+  }
 }
 .content {
   padding: 10%;
@@ -175,7 +179,15 @@ html, body { min-height: 100%; }
   }
 }
 
-
+.user-show {
+  img.gravatar {
+    display: block;
+    margin: 10px auto;
+  }
+  h1 {
+    text-align: center;
+  }
+}
 
 
 /*----------------GRADING------------------------*/
@@ -200,6 +212,16 @@ html, body { min-height: 100%; }
 
 
 /*----RAW data tables for student's character strength data-----------*/
+.ratings-index {
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+  }
+}
+.report-card-header {
+
+}
 
 .char-strength-td {
   width: 50%;
@@ -232,11 +254,12 @@ html, body { min-height: 100%; }
   width:80px;
   height:80px;
   border-radius:50%;
-  border: 3px solid #fff;
+  border: 3px solid $lime-green;
 }
 .button {
   width: 20%;
   padding: 10px;
+  text-align: center;
   border: 2px lighten($lime-green, 8%) solid;
   transition: border 0.5s ease;
   color: $lime-green;
@@ -253,10 +276,23 @@ html, body { min-height: 100%; }
 }
 .button.signup-button {
   width: 60%;
+  margin-bottom: 10px;
 }
-.button.quarter-btn {
-  width: 40%;
-  margin: 0 10%;
+.button.edit-btn {
+  display: block;
+  margin: 30px auto;
+  width: 50%;
+}
+.quarter-btn-group {
+  padding: 30px;
+  text-align: center;
+  .button {
+    margin: 0 20px;
+  }
+/*  .button:hover {
+    position: relative;
+    top: -5px;
+  }*/
 }
 
 /*----GETTING VALUE FOR Morris JS data only*/

@@ -25,6 +25,15 @@ User.create(first_name: "Lauren", last_name:"Havertz", email:"lauren@gmail.com",
 User.create(first_name: "Dave", last_name:"Ferris", email:"dave@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:9999)
 User.create(first_name: "Josh", last_name:"Shelton", email:"josh@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
 
+User.create(first_name: "Justin", last_name:"Johnson", email:"justin@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
+User.create(first_name: "Matt", last_name:"Owens", email:"matt@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
+User.create(first_name: "Brian", last_name:"Schoer", email:"brian@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
+User.create(first_name: "Karl", last_name:"Puzon", email:"karl@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
+User.create(first_name: "Tod", last_name:"Chubrich", email:"tod@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
+User.create(first_name: "Baylee", last_name:"Feore", email:"baylee@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
+User.create(first_name: "Gabe", last_name:"Dominguez", email:"gabe@gmail.com", school_id: 1, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 7, person_id:1010)
+
+
 User.create(first_name: "Alex", last_name:"Altair", email:"alex@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:11111)
 User.create(first_name: "Ryan", last_name:"Waters", email:"ryan@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1313)
 User.create(first_name: "Lior", last_name:"Bendat", email:"lior@gmail.com", school_id: 2, type: "Student", password:"foobar", password_confirmation: "foobar", grade_level: 10, person_id:1414)
