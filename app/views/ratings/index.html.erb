@@ -1,1 +1,5 @@
-
+<% if @current_quarter == 1 %>
+  <%= render :partial => 'quarter1' %>
+<% else %>
+  <%= render :partial => 'quarter2' %>
+<% end %>

@@ -14,6 +14,7 @@ KippReportCard::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin', to: 'sessions#new',          via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
   match '/ratings', to: 'ratings#index',        via: 'get' #rating for student
   match '/dashboard', to: 'ratings#dashboard',  via: 'get' #teacher's dashboard for all student ratings
   get '/users/:id/data.json' => 'ratings#data'
@@ -23,10 +24,15 @@ KippReportCard::Application.routes.draw do
   get '/get_users_by_admin' => 'users#get_users_by_admin'
   get '/get_students_by_school' => 'users#get_students_by_school'
 
-  ##render partials from ratings.html.erb in layouts
+  ##render partials from ratings.html.erb in layouts for students
   get '/users/:id/q1/ratings' => 'ratings#quarter1'
   get '/users/:id/q2/ratings' => 'ratings#quarter2'
   get '/users/:id/cumulative/ratings' => 'ratings#cumulative'
+  ##render partials from ratings.html.erb in layouts for teachers
+  get '/dashboard/q1/ratings' => 'ratings#dashboard_q1'
+  get '/dashboard/q2/ratings' => 'ratings#dashboard_q2'
+  get '/dashboard/cumulative/ratings' => 'ratings#dashboard_cumulative'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

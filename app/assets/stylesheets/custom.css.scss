@@ -207,6 +207,10 @@ html, body { min-height: 100%; }
   visibility: hidden;
 }
 
+.footable {
+  background: #fff;
+}
+
 /* --------------MISC--------------------------- */
 
 .debug_dump {
@@ -243,7 +247,7 @@ html, body { min-height: 100%; }
 }
 
 /*----GETTING VALUE FOR Morris JS data only*/
-.userId {
+.userId, .currentQuarter {
   display:none;
 }
 

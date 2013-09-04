@@ -1,0 +1,24 @@
+<div class="userId"><%= current_user.id %></div>
+<h2>AVERAGES FOR QUARTER 1</h2>
+<% @categories.each do |category| %>
+<div class="knobs col-md-3">
+  <h3><%= category.content %></h3>
+  <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_teachersstudents(category, nil, 1) %>">
+</div>
+<% end %>
+
+  <hr class="col-md-12">
+
+<h2>RAW DATA FOR QUARTER 1</h2>
+  <% @categories.each do |category| %>
+  <table class="footable" data-filter="#filter" data-page-size="5">
+  <tr><td><%= category.content %></td></tr>
+    <% category.char_strengths.each do |char_strength| %>
+      <tr>
+        <td class="char-strength-td"><%= char_strength.content %></td>
+        <td><%= category_average_teachersstudents(char_strength, nil, 1) %></td>
+      </tr>
+    <% end %>
+
+  </table>
+  <% end %>

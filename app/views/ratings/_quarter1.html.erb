@@ -1,9 +1,9 @@
 
-  <div class="col-md-6">
+<div class="col-md-6">
     <h3>Report Card Overview</h3>
     <ul>
       <li>Academic Quarter: 1 </li>
-      <li>Total Graders: <%= @total_raters.length %></li>
+      <li>Total Graders: <%= all_graders(@student, 1).length %></li>
       <li>Student Name: <%= @student.first_name %> <%= @student.last_name %></li>
     </ul>
   </div>
@@ -37,11 +37,12 @@
         <td class="char-strength-td"><%= char_strength.content %></td>
         <td><%= category_average_student(char_strength, nil, 1) %></td>
         <% raw_ratings_for_student(char_strength, 1).each do |rating| %>
-          <td><%= rating.number %><span class="rater-name"> | <%= rating.rater.first_name %> <%= rating.rater.last_name %></span></td>
+          <td><%= rating.number %><span class="rater-name"> | <%= rating.rater.last_name %></span></td>
         <% end %>
       </tr>
     <% end %>
 
   </table>
   <% end %>
+
 

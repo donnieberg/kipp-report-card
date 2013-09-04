@@ -2,7 +2,8 @@
   <div class="col-md-6">
     <h3>Report Card Overview</h3>
     <ul>
-      <li>Total Graders: <%= @total_raters.length %></li>
+      <li>Academic Year Cumulative</li>
+      <li>Total Graders: <%= all_graders(@student).length %></li>
       <li>Student Name: <%= @student.first_name %> <%= @student.last_name %></li>
     </ul>
   </div>

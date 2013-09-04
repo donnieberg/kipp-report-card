@@ -5,7 +5,6 @@ class RatingsController < ApplicationController
     @categories = Category.all
     @student = Student.find(params[:user_id])
     @current_quarter = determine_academic_quarter
-    @total_raters = all_graders(@student)
   end
 
   def new
@@ -33,17 +32,11 @@ class RatingsController < ApplicationController
   end
 
 
-  def dashboard
-    @categories = Category.all
-    @user = current_user
-  end
-
   def quarter1
     @user = current_user
     @categories = Category.all
     @student = Student.find(params[:id])
     @current_quarter = determine_academic_quarter
-    @total_raters = all_graders(@student)
   end
 
   def quarter2
@@ -51,7 +44,6 @@ class RatingsController < ApplicationController
     @categories = Category.all
     @student = Student.find(params[:id])
     @current_quarter = determine_academic_quarter
-    @total_raters = all_graders(@student)
   end
 
   def cumulative
@@ -59,6 +51,29 @@ class RatingsController < ApplicationController
     @categories = Category.all
     @student = Student.find(params[:id])
     @current_quarter = determine_academic_quarter
-    @total_raters = all_graders(@student)
+  end
+
+  def dashboard
+    @categories = Category.all
+    @user = current_user
+    @current_quarter = determine_academic_quarter
+  end
+
+  def dashboard_q1
+    @categories = Category.all
+    @user = current_user
+    @current_quarter = determine_academic_quarter
+  end
+
+  def dashboard_q2
+    @categories = Category.all
+    @user = current_user
+    @current_quarter = determine_academic_quarter
+  end
+
+  def dashboard_cumulative
+    @categories = Category.all
+    @user = current_user
+    @current_quarter = determine_academic_quarter
   end
 end

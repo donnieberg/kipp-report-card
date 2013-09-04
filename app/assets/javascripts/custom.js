@@ -1,6 +1,7 @@
 $(function () {
 
   var userId = $('.userId').html();
+  var currentQuarter = $('.currentQuarter').html();
 
   //Responsive Tables
   $('.footable').footable();
@@ -12,6 +13,7 @@ $(function () {
   //Individual student
   $.ajax(
     '/users/' + userId + '/data.json',
+    // '/users/' + userId + '/data.json' + '/?q=' + currentQuarter,
     {
       success: function(graph_data) {
         var container = $('.chart');

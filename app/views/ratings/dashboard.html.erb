@@ -1,10 +1,7 @@
-<div class="userId"><%= current_user.id %></div>
-<h2>OVERALL AVERAGES</h2>
-<% @categories.each do |category| %>
-<div class="knobs col-md-3">
-  <h3><%= category.content %></h3>
-  <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_teachersstudents(category) %>">
-</div>
+<% if @current_quarter == 1 %>
+  <%= render :partial => 'dashboard_q1' %>
+<% else %>
+  <%= render :partial => 'dashboard_q2' %>
 <% end %>
 
 
