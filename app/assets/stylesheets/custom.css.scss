@@ -254,6 +254,10 @@ html, body { min-height: 100%; }
 .button.signup-button {
   width: 60%;
 }
+.button.quarter-btn {
+  width: 40%;
+  margin: 0 10%;
+}
 
 /*----GETTING VALUE FOR Morris JS data only*/
 .userId, .currentQuarter {

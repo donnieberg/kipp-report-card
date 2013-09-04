@@ -50,12 +50,12 @@ module RatingsHelper
 
   def data  #Morris JS. this parses the json request. then it goes to the ajax file.
     @student = Student.find(params[:id])
-    # quarter = #find it from the url query passed in?
+    quarter = params["q"].to_i
     data = Category.all.map do |category|
       {
         category: category.content,
-        student: category_average_student(category, "Student", 1),
-        teachers: category_average_student(category, "Teacher", 1)
+        student: category_average_student(category, "Student", quarter),
+        teachers: category_average_student(category, "Teacher", quarter)
       }
     end
     render :json  => data

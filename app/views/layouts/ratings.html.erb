@@ -28,9 +28,9 @@
         <% else %>
         <div class="userId"><%= @student.id %></div>
         <div class="student-dashboard col-md-12">
-          <%= link_to "Quarter 1", "/users/" + @student.id.to_s + "/q1/ratings" %>
-          <%= link_to "Quarter 2", "/users/" + @student.id.to_s + "/q2/ratings" %>
-          <%= link_to "Cumulative", "/users/" + @student.id.to_s + "/cumulative/ratings" %>
+          <%= link_to "Quarter 1", "/users/" + @student.id.to_s + "/q1/ratings", class:"button quarter-btn" %>
+          <%= link_to "Quarter 2", "/users/" + @student.id.to_s + "/q2/ratings", class:"button quarter-btn" %>
+          <%= link_to "Cumulative", "/users/" + @student.id.to_s + "/cumulative/ratings", class:"button quarter-btn" %>
           <% if current_user.type == "Teacher" %>
             <h1>Character Strength Averages for <%= @student.first_name %> <%= @student.last_name %></h1>
           <% else %>
