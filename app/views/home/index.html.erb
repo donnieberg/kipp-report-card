@@ -1,17 +1,47 @@
 <% if signed_in? %>
 
 <% else %>
-<section class="hero">
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+  <!-- Carousel items -->
+<div class="carousel-inner">
+  <div class="active item">
     <div class="hero-img">
       <%=image_tag 'smiling.jpg'%>
       <div class="hero-text">
-        <h1>Register</h1>
-        <%= link_to 'Sign up', signup_path, class: "button static-btn" %>
+        <h1><i class='icon-smile icon-large category-icon'></i>Optimism</h1>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="item">
+    <div class="hero-img">
+      <%=image_tag 'college-bound.jpg'%>
+    </div>
+  </div>
+  <div class="item">
+    <div class="hero-img">
+      <%=image_tag 'pencils2.jpg'%>
+    </div>
+  </div>
+  <div class="item">
+    <div class="hero-img">
+      <%=image_tag 'flute.jpg'%>
+    </div>
+  </div>
+  <div class="item">
+    <div class="hero-img">
+      <%= image_tag 'science_class.jpg', class:"science" %>
+    </div>
+  </div>
+</div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
 
-  <section>
-
-  </section>
   <% end %>

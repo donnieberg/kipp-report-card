@@ -13,6 +13,8 @@ $(function () {
   //Circular progress bars on dashboard
   $(".knob").knob();
 
+  $('.carousel').carousel();
+
   // //Morris JS Bar Charts
 
   // var userId = $('.userId').html();
