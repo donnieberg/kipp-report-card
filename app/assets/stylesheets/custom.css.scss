@@ -40,6 +40,40 @@ body#cumulative a#cumulative {
   color: #fff;
   border: none;
 }
+.static-header {
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+  a {
+    font-size: 20px;
+    color: lighten($lime-green, 8%);
+  }
+  .static-sign-in {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+  }
+}
+.hero-img {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow:hidden;
+  img {
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+.hero-text {
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  background: #fff;
+  padding: 40px;
+}
 
 .main-header {
   border-bottom: 1px solid #ccc;
@@ -57,9 +91,6 @@ body#cumulative a#cumulative {
     top: 20px;
     font-size: 32px;
     color: lighten($lime-green, 8%);
-  }
-  a.sign-in {
-    font-size: 20px;
   }
 }
 
@@ -196,6 +227,10 @@ body#cumulative a#cumulative {
 .category-icon {
   margin-right: 10px;
 }
+.category-row {
+  background: $grey;
+  color: #fff;
+}
 .knobs {
   text-align: center;
 }
@@ -241,6 +276,9 @@ body#cumulative a#cumulative {
   margin: 30px auto;
   width: 50%;
 }
+.button.static-btn {
+  padding: 5px 40px;
+}
 .quarter-btn-group {
   padding: 30px;
   text-align: center;
@@ -255,6 +293,6 @@ body#cumulative a#cumulative {
 }
 
 /*----GETTING VALUE FOR Morris JS data only*/
-.userId, .currentQuarter, .rater-name {
+.userId, .currentQuarter, .rater-name, .sign-in {
   display:none;
 }

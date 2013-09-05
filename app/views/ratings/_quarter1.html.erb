@@ -22,7 +22,7 @@
 
 <hr class="col-md-12">
 
-<h1>Teacher | Self-Assessment</h1>
+<h1>Teacher/Student Grades</h1>
 <div class='chart col-md-12'></div>
 
 <hr class="col-md-12">
@@ -40,7 +40,7 @@
    </thead>
   <tbody>
   <% @categories.each do |category| %>
-    <tr>
+    <tr class="category-row">
       <td class="category-name"><%= category.content %></td>
       <td colspan="3"><%= category_average_student(category, nil, 1) %></td>
 

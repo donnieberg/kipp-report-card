@@ -11,7 +11,7 @@
   <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
 </head>
 <body>
-
+  <% if signed_in? %>
   <%= render 'layouts/off_canvas_nav' %>
   <div class="page-wrap">
     <%= render 'layouts/header' %>
@@ -19,9 +19,22 @@
     <div class="content">
         <%= render 'layouts/flashMessages' %>
         <%= yield %>
-        <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
+  <% else %>
+  <header class="static-header">
+    <div class="static-sign-in">
+      <%= link_to 'Sign in', signin_path, class: "button static-btn" %>
+    </div>
+    <h3><%=image_tag 'lab.png', class:"logo"%> CHARACTER LABS</h3>
+  </header>
+  <%= yield %>
+  <% end %>
 
+  <script type="text/javascript">
+    if($('.sign-in').length > 0) {
+      $('.static-sign-in').remove();
+    }
+  </script>
 </body>
 </html>

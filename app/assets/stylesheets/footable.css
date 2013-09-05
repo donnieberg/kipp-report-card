@@ -161,6 +161,7 @@
 }
 .footable.breakpoint > tbody > tr > td.footable-row-detail-cell {
   background: #fff;
+  border-top: 1px solid #cccccc;
 }
 .footable > tbody img {
   vertical-align: middle;

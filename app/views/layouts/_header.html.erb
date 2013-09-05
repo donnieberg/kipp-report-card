@@ -1,13 +1,9 @@
 <header class="main-header">
-  <% if signed_in? %>
   <a href="#main-nav" class="open-menu">
     ☰
   </a>
   <a href="#" class="close-menu">
     ☰
   </a>
-  <% else %>
-    <%= link_to 'Sign in', signin_path, class: "sign-in" %>
-  <% end %>
-  <h3>CHARACTER LABS</h3>
+  <h3><%=image_tag 'lab.png', class:"logo"%> CHARACTER LABS</h3>
 </header>

@@ -1,3 +1,17 @@
+<% if signed_in? %>
+
+<% else %>
 <section class="hero">
-  <%#= image_tag 'classroom.png' %>
-</section>
+    <div class="hero-img">
+      <%=image_tag 'smiling.jpg'%>
+      <div class="hero-text">
+        <h1>Register</h1>
+        <%= link_to 'Sign up', signup_path, class: "button static-btn" %>
+      </div>
+    </div>
+  </section>
+
+  <section>
+
+  </section>
+  <% end %>
