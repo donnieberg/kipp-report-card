@@ -1,34 +1,35 @@
 <div class="currentQuarter">1</div>
 
-  <div class="col-md-8 report-card-header">
-    <h3>Report Card Overview</h3>
-      <p><span class="col-md-4">Academic Quarter:</span> 1 </p>
-      <p><span class="col-md-4">Total Graders:</span> <%= all_graders(@student, 1).length %></p>
-  </div>
-  <div class="col-md-4">
-    <h3>QUARTER 1 Grade Point</h3>
-    <h1><%= cumulative_average(@student, 1) %></h1>
-  </div>
+<div class="col-md-8">
+  <h3>Overview</h3>
+    <p><span class="col-md-4">Academic Semester:</span> 1 </p>
+    <p><span class="col-md-4">Total Graders:</span> <%= all_graders(@student, 1).length %></p>
+</div>
+<div class="col-md-4">
+  <h3>Semester Grade Point</h3>
+  <h2 class="cumulative-grade"><%= cumulative_average(@student, 1) %></h2>
+</div>
 
+<hr class="col-md-12">
 
-  <hr class="col-md-12">
-
-  <h2>QUARTER 1 AVERAGES</h2>
-  <% @categories.each do |category| %>
+<h1>Character Strength Categories</h1>
+<% @categories.each do |category| %>
   <div class="knobs col-xs-6 col-md-3">
     <h3><%= category.content %></h3>
     <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_student(category, nil, 1) %>">
   </div>
-  <% end %>
+<% end %>
 
-  <hr class="col-md-12">
+<hr class="col-md-12">
 
-  <h2>QUARTER 1 TEACHER VS SELF-ASSESSMENT</h2>
-  <div class='chart col-md-12'></div>
-  <hr class="col-md-12">
+<h1>Teacher | Self-Assessment</h1>
+<div class='chart col-md-12'></div>
 
-  <h2>QUARTER 1 RAW DATA</h2>
-<table class="footable raw-data" data-filter="#filter" data-page-size="5">
+<hr class="col-md-12">
+
+<h1>Report Card Grades</h1>
+
+<table class="footable" data-filter="#filter" data-page-size="5">
    <thead>
     <tr>
       <th data-sort-ignore="true">Category</th>
@@ -39,22 +40,23 @@
    </thead>
   <% @categories.each do |category| %>
   <tbody>
-  <tr>
-    <td class="cat-content"><%= category.content %></td>
-    <td class="cat-content"><%= category_average_student(category, nil, 1) %></td>
-    <td class="cat-content"></td>
-    <td class="cat-content"></td>
-  </tr>
+    <tr>
+      <td><%= category.content %></td>
+      <td><%= category_average_student(category, nil, 1) %></td>
+    </tr>
     <% category.char_strengths.each do |char_strength| %>
-      <tr>
-        <td class="char-strength-td"><%= char_strength.content %></td>
-        <td><%= category_average_student(char_strength, nil, 1) %></td>
-        <% raw_ratings_for_student(char_strength, 1).each do |rating| %>
-          <td><%= rating.number %> - <%= rating.rater.last_name %></td>
-        <% end %>
-      </tr>
+    <tr>
+      <td><%= char_strength.content %></td>
+      <td><%= category_average_student(char_strength, nil, 1) %></td>
+      <% raw_ratings_for_student(char_strength, 1).each do |rating| %>
+        <td><%= rating.number %> - <%= rating.rater.last_name %></td>
+      <% end %>
+    </tr>
     <% end %>
-  <% end %>
+    <% end %>
   </tbody>
-  </table>
+</table>
 
+<script type="text/javascript">
+ $('body').attr('id', 'quarter1');
+</script>

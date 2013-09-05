@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="AngularUsers">
+<html>
 <head>
   <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -16,25 +16,24 @@
     <%= render 'layouts/header' %>
       <div class="content ratings-index">
       <%= render 'layouts/flashMessages' %>
-        <% if current_user.type == "Teacher" %>
-          <h1><%= image_tag @student.avatar.url, class:"gravatar" %> <%= @student.first_name %> <%= @student.last_name %></h1>
-        <% else %>
-          <h1>My Character Strength Averages</h1>
-        <% end %>
 
-        <div class="quarter-btn-group">
+        <div class="quarter-btn-group col-md-12">
         <% if @student.nil? %>
-          <%= link_to "Quarter 1", "/dashboard/q1/ratings" %>
-          <%= link_to "Quarter 2", "/dashboard/q2/ratings" %>
-          <%= link_to "Cumulative", "/dashboard/cumulative/ratings" %>
-
+          <%= link_to "Semester 1", "/dashboard/q1/ratings" %>
+          <%= link_to "Semester 2", "/dashboard/q2/ratings" %>
+          <%= link_to "Academic Year", "/dashboard/cumulative/ratings" %>
           <%= yield %>
           <%= debug(params) if Rails.env.development? %>
         <% else %>
         <div class="userId"><%= @student.id %></div>
-          <%= link_to "Quarter 1", "/users/" + @student.id.to_s + "/q1/ratings", class:"button quarter-btn" %>
-          <%= link_to "Quarter 2", "/users/" + @student.id.to_s + "/q2/ratings", class:"button quarter-btn" %>
-          <%= link_to "Cumulative", "/users/" + @student.id.to_s + "/cumulative/ratings", class:"button quarter-btn" %>
+
+        <h1>
+          <%= image_tag @student.avatar.url, class:"gravatar" %>
+          <%= @student.first_name %> <%= @student.last_name %> Overview
+        </h1>
+          <%= link_to "Semester 1", "/users/" + @student.id.to_s + "/q1/ratings", class:"button quarter-btn", id:"quarter1" %>
+          <%= link_to "Semester 2", "/users/" + @student.id.to_s + "/q2/ratings", class:"button quarter-btn", id:"quarter2" %>
+          <%= link_to "Academic Year", "/users/" + @student.id.to_s + "/cumulative/ratings", class:"button quarter-btn", id:"cumulative" %>
         </div>
         <hr>
           <%= yield %>
@@ -44,5 +43,33 @@
       </div>
 
   </div>
+
+<script type="text/javascript">
+$(function () {
+  var userId = $('.userId').html();
+  var currentQuarter = $('.currentQuarter').html();
+//Morris JS Bar Charts
+  //Individual student
+  $.ajax(
+    '/users/' + userId + '/data.json' + '?q=' + currentQuarter,
+    {
+      success: function(graph_data) {
+        var container = $('.chart');
+        var colors = ['red','skyblue','green','gold'];
+        container.append('<div id="ratings_chart" class="graph" />');
+        Morris.Bar({
+          element: 'ratings_chart',
+          data: graph_data,
+          xkey: 'category',
+          ykeys: ['student', 'teachers'],
+          labels: ['Student', 'Teachers']
+        });
+      }
+    }
+  );
+});
+
+</script>
+
 </body>
 </html>
