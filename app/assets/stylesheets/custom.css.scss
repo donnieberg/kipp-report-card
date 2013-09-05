@@ -28,7 +28,7 @@ li {
   list-style: none;
 }
 .content {
-  padding: 10%;
+  padding: 7% 10%;
 }
 
 /*--------------------static page------------------*/
@@ -117,6 +117,10 @@ li {
     margin-bottom: 5%;
     background: $grey;
     color: #fff;
+  }
+  .static-char-strengths div {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 
@@ -239,6 +243,8 @@ body#cumulative a#cumulative {
 /*-----------------------end off-canvas nav bar-----------------------*/
 
 .user-show {
+  padding-top: 7%;
+  padding-bottom: 2%;
   img.gravatar {
     display: block;
     margin: 10px auto;
@@ -322,20 +328,20 @@ body#cumulative a#cumulative {
     color: $dirty-brown;
   }
 }
-.button.report-card-button {
+/*.button.report-card-button {
   display: block;
   margin: 30px auto;
   width: 30%;
-}
-.button.signup-button {
+}*/
+/*.button.signup-button {
   width: 60%;
   margin-bottom: 10px;
-}
-.button.edit-btn {
+}*/
+/*.button.edit-btn {
   display: block;
   margin: 30px auto;
   width: 50%;
-}
+}*/
 .button.static-btn {
   padding: 5px 40px;
 }
@@ -346,13 +352,21 @@ body#cumulative a#cumulative {
     margin: 0 20px;
     padding: 10px 40px;
   }
-/*  .button:hover {
-    position: relative;
-    top: -5px;
-  }*/
 }
 
 /*----GETTING VALUE FOR Morris JS data only*/
 .userId, .currentQuarter, .rater-name, .sign-in {
   display:none;
 }
+
+footer {
+  margin-top: 60px;
+  padding-top: 5px;
+  background: darken($grey, 50%);
+  height: 100px;
+  p {
+    color: #fff;
+  }
+}
+
+

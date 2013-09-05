@@ -1,6 +1,4 @@
-<% if signed_in? %>
-
-<% else %>
+<% if !signed_in? %>
 <div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -39,15 +37,21 @@
   <!-- Carousel nav -->
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
   <div class="hero-text col-md-5">
     <h1>Register</h1>
     <%= link_to 'Sign up', signup_path, class: "button register-btn col-md-3 col-md-offset-1" %>
   </div>
 </div>
+<% end %>
 
 <div class="col-md-12 below-hero">
+<% if !signed_in? %>
 <h1>Character Labs for <br>KIPP School Report Cards</h1>
-<section class="static-icon-group">
+<% else %>
+<h1>Let's Get Started!</h1>
+<% end %>
+<section class="static-icon-group col-md-10 col-md-offset-1">
   <div class="col-md-4">
     <h3 class="static-icon"><i class="icon-file-text icon-4x"></i></h3>
     <h3>Online Grading</h3>
@@ -60,6 +64,7 @@
     <h3 class="static-icon"><i class="icon-bar-chart icon-4x"></i></h3>
     <h3>Data Analysis</h3>
   </div>
+</section>
 
   <div class="col-md-10 col-md-offset-1">
     <p class="quote">
@@ -68,18 +73,42 @@
     </p>
   </div>
   <div class="col-md-12">
-    <h1>KIPP Character Strengths</h1>
-    <ul class="static-char-strengths">
-      <li class="col-md-3"><p><i class='icon-thumbs-up-alt icon-large category-icon'></i> Zest</p></li>
-      <li class="col-md-3"><p><i class='icon-cloud-upload icon-large category-icon'></i> Grit</p></li>
-      <li class="col-md-3"><p><i class='icon-file-text-alt icon-large category-icon'></i> School Work</p></li>
-      <li class="col-md-3"><p><i class='icon-group icon-large category-icon'></i> Interpersonal</p></li>
-      <li class="col-md-3"><p><i class='icon-smile icon-large category-icon'></i> Optimism</p></li>
-      <li class="col-md-3"><p><i class='icon-heart-empty icon-large category-icon'></i> Gratitude</p></li>
-      <li class="col-md-3"><p><i class='icon-comments icon-large category-icon'></i> Social Intelligence</p></li>
-      <li class="col-md-3"><p><i class='icon-eye-open icon-large category-icon'></i> Curiosity</p></li>
-    </ul>
+    <h1 class="col-md-12">KIPP Character Strengths</h1>
+    <div class="static-char-strengths col-md-10 col-md-offset-1">
+      <div class="col-md-3">
+        <p><i class='icon-thumbs-up-alt icon-large category-icon'></i> Zest</p>
+        <p>Approaching life with excitement and energy; feeling alive and activated.</p>
+      </div>
+      <div class="col-md-3">
+        <p><i class='icon-cloud-upload icon-large category-icon'></i> Grit</p>
+        <p>Finishing what one starts; completing something despite obstacles; a combination of persistence and resilience.</p>
+      </div>
+      <div class="col-md-3">
+        <p><i class='icon-file-text-alt icon-large category-icon'></i> School Work</p>
+        <p>Regulating what one feels and does; being self-disciplined and completing school work on time and with intentionality.</p>
+      </div>
+      <div class="col-md-3">
+        <p><i class='icon-group icon-large category-icon'></i> Interpersonal</p>
+        <p>Remains calm in difficult situations, allows others to speak without interruption, and keeps temper in check.</p>
+      </div>
+      <hr class="col-md-12">
+      <div class="col-md-3">
+        <p><i class='icon-smile icon-large category-icon'></i> Optimism</p>
+        <p>Expecting the best in the future and working to achieve it.</p>
+      </div>
+      <div class="col-md-3">
+        <p><i class='icon-heart-empty icon-large category-icon'></i> Gratitude</p>
+        <p>Being aware of and thankful for opportunities that one has and for good things that happen.</p>
+      </div>
+      <div class="col-md-3">
+        <p><i class='icon-comments icon-large category-icon'></i> Social Intelligence</p>
+        <p>Being aware of motives and feelings of people; including the ability to reason within large and small groups.</p>
+      </div>
+      <div class="col-md-3">
+        <p><i class='icon-eye-open icon-large category-icon'></i> Curiosity</p>
+        <p>Taking an interest in experience and learning new things for its own sake; finding things fascinating.</p>
+      </div>
+    </div>
   </div>
-</section>
+
 </div>
-  <% end %>

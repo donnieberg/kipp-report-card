@@ -4,7 +4,6 @@
       School <%= f.select :school_id, School.all.map{|school| [school.name, school.id]}, :include_blank => true, :prompt => "Select School" %>
     </div>
     <div class="form-group">
-<!--       User Type <%#= f.select :type, options_for_select(["Teacher", "Student"]) %> -->
       User Type:
       <%= f.check_box(:type, {}, "Teacher", "Student") %> Teacher
       <%= f.check_box(:type, {}, "Student", "Teacher") %> Student
@@ -34,6 +33,6 @@
       <%= f.label :avatar %>
       <%= f.file_field :avatar %>
     </div>
-      <%= f.submit nil, class: "button signup-button" %>
+      <%= f.submit nil, class: "button" %>
     <% end %>
 

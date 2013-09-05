@@ -23,7 +23,6 @@
           <%= link_to "Semester 2", "/dashboard/q2/ratings" %>
           <%= link_to "Academic Year", "/dashboard/cumulative/ratings" %>
           <%= yield %>
-          <%= debug(params) if Rails.env.development? %>
         <% else %>
         <div class="userId"><%= @student.id %></div>
 
@@ -37,11 +36,9 @@
         </div>
         <hr>
           <%= yield %>
-          <%= debug(params) if Rails.env.development? %>
-
         <% end %>
       </div>
-
+      <%= render 'layouts/footer' %>
   </div>
 
 <script type="text/javascript">
