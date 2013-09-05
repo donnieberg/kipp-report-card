@@ -15,48 +15,5 @@ $(function () {
 
   $('.carousel').carousel();
 
-  // //Morris JS Bar Charts
-
-  // var userId = $('.userId').html();
-  // var currentQuarter = $('.currentQuarter').html();
-  // //Individual student
-  // $.ajax(
-  //   // '/users/' + userId + '/data.json',
-  //   '/users/' + userId + '/data.json' + '?q=' + currentQuarter,
-  //   {
-  //     success: function(graph_data) {
-  //       var container = $('.chart');
-  //       var colors = ['red','skyblue','green','gold'];
-  //       container.append('<div id="ratings_chart" class="graph" />');
-  //       Morris.Bar({
-  //         element: 'ratings_chart',
-  //         data: graph_data,
-  //         xkey: 'category',
-  //         ykeys: ['student', 'teachers'],
-  //         labels: ['Student', 'Teachers']
-  //       });
-  //     }
-  //   }
-  // );
-
-  // //teacher dashboard
-  // $.ajax(
-  //   '/dashboard/' + userId + '/data.json',
-  //   {
-  //     success: function(graph_data) {
-  //       var container = $('.chart2');
-  //       var colors = ['red','skyblue','green','gold'];
-  //       container.append('<div id="ratings_chart2" class="graph ratings_chart" />');
-  //       Morris.Bar({
-  //         element: 'ratings_chart2',
-  //         data: graph_data,
-  //         xkey: 'category',
-  //         ykeys: ['student', 'teachers'],
-  //         labels: ['Students', 'Teachers']
-  //       });
-  //     }
-  //   }
-  // );
-
 });
 
