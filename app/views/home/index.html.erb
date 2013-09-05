@@ -13,9 +13,6 @@
   <div class="active item">
     <div class="hero-img">
       <%=image_tag 'smiling.jpg'%>
-      <div class="hero-text">
-        <h1><i class='icon-smile icon-large category-icon'></i>Optimism</h1>
-      </div>
     </div>
   </div>
   <div class="item">
@@ -42,6 +39,29 @@
   <!-- Carousel nav -->
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+  <div class="hero-text col-md-5">
+    <h1>Register</h1>
+    <%= link_to 'Sign up', signup_path, class: "button register-btn col-md-3 col-md-offset-1" %>
+  </div>
 </div>
 
+<div class="col-md-12 below-hero">
+<h1>Character Labs for <br>KIPP School Report Cards</h1>
+<section class="static-icon-group">
+  <div class="col-md-4">
+    <h3 class="static-icon"><i class="icon-file-text icon-4x"></i></h3>
+    <h3>Online Grading</h3>
+  </div>
+  <div class="col-md-4">
+    <h3 class="static-icon"><i class="icon-dashboard icon-4x"></i></h3>
+    <h3>Real Time Feedback</h3>
+  </div>
+  <div class="col-md-4">
+    <h3 class="static-icon"><i class="icon-bar-chart icon-4x"></i></h3>
+    <h3>Data Analysis</h3>
+  </div>
+
+
+</section>
+</div>
   <% end %>

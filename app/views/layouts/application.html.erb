@@ -17,8 +17,8 @@
     <%= render 'layouts/header' %>
 
     <div class="content">
-        <%= render 'layouts/flashMessages' %>
-        <%= yield %>
+      <%= render 'layouts/flashMessages' %>
+      <%= yield %>
     </div>
   </div>
   <% else %>
@@ -26,7 +26,7 @@
     <div class="static-sign-in">
       <%= link_to 'Sign in', signin_path, class: "button static-btn" %>
     </div>
-    <h3><%=image_tag 'lab.png', class:"logo"%> CHARACTER LABS</h3>
+    <a href="http://localhost:3000/"><h3><%=image_tag 'lab.png', class:"logo"%> CHARACTER LABS</h3></a>
   </header>
   <%= yield %>
   <% end %>
