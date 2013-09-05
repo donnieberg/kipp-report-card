@@ -17,24 +17,32 @@
       <div class="content ratings-index">
       <%= render 'layouts/flashMessages' %>
 
-        <div class="quarter-btn-group col-md-12">
+        <div class="col-md-12">
         <% if @student.nil? %>
           <%= link_to "Semester 1", "/dashboard/q1/ratings" %>
           <%= link_to "Semester 2", "/dashboard/q2/ratings" %>
           <%= link_to "Academic Year", "/dashboard/cumulative/ratings" %>
           <%= yield %>
         <% else %>
-        <div class="userId"><%= @student.id %></div>
 
+        <div class="userId"><%= @student.id %></div>
         <h1>
           <%= image_tag @student.avatar.url, class:"gravatar" %>
-          <%= @student.first_name %> <%= @student.last_name %> Overview
+          <%= @student.first_name %> <%= @student.last_name %>
         </h1>
+        <div class="mobile-quarter-links">
+          <%= link_to "Semester 1", "/users/" + @student.id.to_s + "/q1/ratings" %> |
+          <%= link_to "Semester 2", "/users/" + @student.id.to_s + "/q2/ratings" %> |
+          <%= link_to "Academic Year", "/users/" + @student.id.to_s + "/cumulative/ratings" %>
+        </div>
+
+        <div class="quarter-btn-group">
           <%= link_to "Semester 1", "/users/" + @student.id.to_s + "/q1/ratings", class:"button quarter-btn", id:"quarter1" %>
           <%= link_to "Semester 2", "/users/" + @student.id.to_s + "/q2/ratings", class:"button quarter-btn", id:"quarter2" %>
           <%= link_to "Academic Year", "/users/" + @student.id.to_s + "/cumulative/ratings", class:"button quarter-btn", id:"cumulative" %>
         </div>
-        <hr>
+      </div>
+        <hr class="hr-hidden col-md-12">
           <%= yield %>
         <% end %>
       </div>

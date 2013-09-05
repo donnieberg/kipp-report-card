@@ -14,18 +14,23 @@
 
 <h1>Character Strength Categories</h1>
 <% @categories.each do |category| %>
-  <div class="knobs col-xs-6 col-md-3">
+  <div class="knobs col-xs-12 col-sm-6 col-md-3">
     <h3><%= category.content %></h3>
     <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_student(category, nil, 1) %>">
   </div>
 <% end %>
 
+<hr class="hr-hidden col-md-12">
+<hr class="hr-hidden col-md-12">
 <hr class="col-md-12">
+<hr class="hr-hidden col-md-12">
 
 <h1>Teacher/Student Grades</h1>
 <div class='chart col-md-12'></div>
 
+<hr class="hr-hidden col-md-12">
 <hr class="col-md-12">
+<hr class="hr-hidden col-md-12">
 
 <h1>Report Card Grades</h1>
 
@@ -82,6 +87,5 @@
       $(this).prepend("<i class='icon-smile icon-large category-icon'></i>");
     }
   });
-  // var a = $('.category-name').html();
 
 </script>
