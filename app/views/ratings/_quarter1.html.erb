@@ -1,14 +1,20 @@
 <div class="currentQuarter">1</div>
 
-<div class="col-md-8">
-  <h3>Overview</h3>
-    <p><span class="col-md-4">Academic Semester:</span> 1 </p>
-    <p><span class="col-md-4">Total Graders:</span> <%= all_graders(@student, 1).length %></p>
-</div>
-<div class="col-md-4">
-  <h3>Semester Grade Point</h3>
-  <h2 class="cumulative-grade"><%= cumulative_average(@student, 1) %></h2>
-</div>
+<ul class="ratings-overview">
+  <li class="overview-left">
+    <h3>Semester Grade Point</h3>
+    <h2 class="cumulative-grade">
+      <i class="icon-star-empty star"></i>
+      <%= cumulative_average(@student, 1) %>
+      <i class="icon-star-empty star"></i>
+    </h2>
+  </li>
+  <li class="overview-right">
+    <h3>Overview</h3>
+    <p>Academic Semester: 1 </p>
+    <p>Total Graders: <%= all_graders(@student, 1).length %></p>
+  </li>
+</ul>
 
 <hr class="col-md-12">
 

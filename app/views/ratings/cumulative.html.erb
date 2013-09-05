@@ -1,47 +1,94 @@
 <div class="currentQuarter"></div>
-  <div class="col-md-6">
-    <h3>Report Card Overview</h3>
-    <ul>
-      <li>Academic Year Cumulative</li>
-      <li>Total Graders: <%= all_graders(@student).length %></li>
-      <li>Student Name: <%= @student.first_name %> <%= @student.last_name %></li>
-    </ul>
-  </div>
-  <div class="col-md-6">
+
+<ul class="ratings-overview">
+  <li class="overview-left">
     <h3>Cumulative Grade Point</h3>
-    <h1><%= cumulative_average(@student) %></h1>
-  </div>
+    <h2 class="cumulative-grade">
+      <i class="icon-star-empty star"></i>
+      <%= cumulative_average(@student) %>
+      <i class="icon-star-empty star"></i>
+    </h2>
+  </li>
+  <li class="overview-right">
+    <h3>Overview</h3>
+    <p>Academic Year: <%= Time.now.year %></p>
+    <p>Total Graders: <%= all_graders(@student).length %></p>
+  </li>
+</ul>
 
-  <hr class="col-md-12">
+<hr class="col-md-12">
 
-  <h2>Cumulative AVERAGES</h2>
-  <% @categories.each do |category| %>
-  <div class="knobs col-md-3">
+<h1>Character Strength Categories</h1>
+<% @categories.each do |category| %>
+  <div class="knobs col-xs-12 col-sm-6 col-md-3">
     <h3><%= category.content %></h3>
     <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= category_average_student(category) %>">
   </div>
-  <% end %>
+<% end %>
 
-  <hr class="col-md-12">
+<hr class="hr-hidden col-md-12">
+<hr class="hr-hidden col-md-12">
+<hr class="col-md-12">
+<hr class="hr-hidden col-md-12">
 
-  <h2>Cumulative TEACHER VS SELF-ASSESSMENT</h2>
-  <div class='chart col-md-12'></div>
-  <hr class="col-md-12">
+<h1>Teacher/Student Grades</h1>
+<div class='chart col-md-12'></div>
 
-  <h2>Cumulative RAW DATA</h2>
+<hr class="hr-hidden col-md-12">
+<hr class="col-md-12">
+<hr class="hr-hidden col-md-12">
+
+<h1>Report Card Grades</h1>
+
+<table class="footable" data-filter="#filter" data-page-size="5">
+   <thead>
+    <tr>
+      <th data-sort-ignore="true">Category</th>
+      <th data-sort-ignore="true">Average</th>
+      <th data-hide="phone,tablet" data-sort-ignore="true"></th>
+      <th data-hide="phone,tablet" data-sort-ignore="true"></th>
+    </tr>
+   </thead>
+  <tbody>
   <% @categories.each do |category| %>
-  <table class="footable" data-filter="#filter" data-page-size="5">
-  <tr><td><%= category.content %></td><td>Average</td></tr>
-    <% category.char_strengths.each do |char_strength| %>
-      <tr>
-        <td class="char-strength-td"><%= char_strength.content %></td>
-        <td><%= category_average_student(char_strength) %></td>
-      </tr>
-    <% end %>
+    <tr class="category-row">
+      <td class="category-name"><%= category.content %></td>
+      <td colspan="3"><%= category_average_student(category) %></td>
 
-  </table>
-  <% end %>
+      <% category.char_strengths.each do |char_strength| %>
+    <tr>
+      <td><%= char_strength.content %></td>
+      <td><%= category_average_student(char_strength) %></td>
+    </tr>
+    <% end %>
+    <% end %>
+    </tr>
+
+  </tbody>
+</table>
 
 <script type="text/javascript">
- $('body').attr('id', 'cumulative');
+  $('body').attr('id', 'cumulative');
+  $('.category-name').each(function(){
+    if($(this).html() == "Zest") {
+      $(this).prepend("<i class='icon-thumbs-up-alt icon-large category-icon'></i>");
+    } else if ($(this).html() == "Grit") {
+      $(this).prepend("<i class='icon-cloud-upload icon-large category-icon'></i>");
+    } else if ($(this).html() == "School Work") {
+      $(this).prepend("<i class='icon-file-text-alt icon-large category-icon'></i>");
+    } else if ($(this).html() == "Interpersonal") {
+      $(this).prepend("<i class='icon-group icon-large category-icon'></i>");
+    } else if ($(this).html() == "Optimism") {
+      $(this).prepend("<i class='icon-smile icon-large category-icon'></i>");
+    } else if ($(this).html() == "Gratitude") {
+      $(this).prepend("<i class='icon-heart-empty icon-large category-icon'></i>");
+    } else if ($(this).html() == "Social Intelligence") {
+      $(this).prepend("<i class='icon-comments icon-large category-icon'></i>");
+    } else if ($(this).html() == "Curiosity") {
+      $(this).prepend("<i class='icon-eye-open icon-large category-icon'></i>");
+    } else {
+      $(this).prepend("<i class='icon-smile icon-large category-icon'></i>");
+    }
+  });
+
 </script>
