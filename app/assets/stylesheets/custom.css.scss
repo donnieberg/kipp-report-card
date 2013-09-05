@@ -5,6 +5,7 @@ $lime-green: #79a002;
 $dirty-brown: #886A08;
 $light-blue: rgb(135, 206, 235);
 $grey: #b1aea6;
+$light-grey: lighten($grey, 20%);
 
 body {
   font:300 1.8em 'Lato', sans-serif;
@@ -103,11 +104,22 @@ li {
   padding: 20px;
   margin: 0 auto;
 }
-.below-hero h1 {
-  font-size: 2.5em;
-  text-transform: uppercase;
-  color: darken($grey, 10%);
+.below-hero {
+  h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+    color: darken($grey, 10%);
+  }
+  .quote {
+    border: 1px $light-grey solid;
+    padding: 3%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background: $grey;
+    color: #fff;
+  }
 }
+
 
 
 /*-------------------real app------------------*/
