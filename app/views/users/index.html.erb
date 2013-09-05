@@ -1,3 +1,4 @@
+<div class="users-index">
 <div ng-controller="AngularUsersCtrl">
 <% if current_user.admin %>
 <h1>All Users at <%= current_user.school.name %></h1>
@@ -34,7 +35,7 @@
 
 <% elsif current_user.type == 'Teacher' %>
 <h1>My Students</h1>
-  <table class="footable" data-filter="#filter" data-page-size="5">
+  <table class="footable table table-striped" data-filter="#filter" data-page-size="5">
     <thead>
       <tr>
         <th data-toggle="true">Last Name</th>
@@ -71,4 +72,5 @@
 <% else %>
   <h1>Your user type shouldn't have access to this page.. :/</h1>
 <% end %>
+</div>
 </div>

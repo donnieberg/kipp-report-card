@@ -165,12 +165,12 @@
 .footable > tbody img {
   vertical-align: middle;
 }
-.footable > tbody > tr:hover:not(.footable-row-detail) {
+/*.footable > tbody > tr:hover:not(.footable-row-detail) {
   background: #dddddd;
 }
 .footable > tbody > tr:hover:not(.footable-row-detail) > td {
   color: #000000;
-}
+}*/
 .footable > tbody > tr:last-child > td {
   border-bottom: none;
 }
@@ -318,9 +318,9 @@
 .footable > tbody img {
   vertical-align: middle;
 }
-.footable > tbody > tr:hover {
+/*.footable > tbody > tr:hover {
   background: #fbf8e9;
-}
+}*/
 .footable > tbody > tr:last-child > td.footable-first-column {
   -moz-border-radius: 0 0 0 6px;
   -webkit-border-radius: 0 0 0 6px;
@@ -337,7 +337,7 @@
   border-radius: 0 0 6px 6px;
 }
 .footable > tbody > tr > td {
-  border-top: 1px solid #cccccc;
+/*  border-top: 1px solid #cccccc;*/
   border-left: 1px solid #cccccc;
   padding: 10px;
   text-align: left;

@@ -38,13 +38,13 @@
       <th data-hide="phone,tablet" data-sort-ignore="true"></th>
     </tr>
    </thead>
-  <% @categories.each do |category| %>
   <tbody>
+  <% @categories.each do |category| %>
     <tr>
-      <td><%= category.content %></td>
-      <td><%= category_average_student(category, nil, 1) %></td>
-    </tr>
-    <% category.char_strengths.each do |char_strength| %>
+      <td class="category-name"><%= category.content %></td>
+      <td colspan="3"><%= category_average_student(category, nil, 1) %></td>
+
+      <% category.char_strengths.each do |char_strength| %>
     <tr>
       <td><%= char_strength.content %></td>
       <td><%= category_average_student(char_strength, nil, 1) %></td>
@@ -54,9 +54,34 @@
     </tr>
     <% end %>
     <% end %>
+    </tr>
+
   </tbody>
 </table>
 
 <script type="text/javascript">
- $('body').attr('id', 'quarter1');
+  $('body').attr('id', 'quarter1');
+  $('.category-name').each(function(){
+    if($(this).html() == "Zest") {
+      $(this).prepend("<i class='icon-thumbs-up-alt icon-large category-icon'></i>");
+    } else if ($(this).html() == "Grit") {
+      $(this).prepend("<i class='icon-cloud-upload icon-large category-icon'></i>");
+    } else if ($(this).html() == "School Work") {
+      $(this).prepend("<i class='icon-file-text-alt icon-large category-icon'></i>");
+    } else if ($(this).html() == "Interpersonal") {
+      $(this).prepend("<i class='icon-group icon-large category-icon'></i>");
+    } else if ($(this).html() == "Optimism") {
+      $(this).prepend("<i class='icon-smile icon-large category-icon'></i>");
+    } else if ($(this).html() == "Gratitude") {
+      $(this).prepend("<i class='icon-heart-empty icon-large category-icon'></i>");
+    } else if ($(this).html() == "Social Intelligence") {
+      $(this).prepend("<i class='icon-comments icon-large category-icon'></i>");
+    } else if ($(this).html() == "Curiosity") {
+      $(this).prepend("<i class='icon-eye-open icon-large category-icon'></i>");
+    } else {
+      $(this).prepend("<i class='icon-smile icon-large category-icon'></i>");
+    }
+  });
+  // var a = $('.category-name').html();
+
 </script>
