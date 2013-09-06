@@ -92,16 +92,28 @@ module RatingsHelper
   end
 
 
-  def data_dashboard  #Morris JS. this parses the json request. then it goes to the ajax file.
-    data = Category.all.map do |category|
-      {
-        category: category.content,
-        student: category_average_teachersstudents(category, "Student", 1),
-        teachers: category_average_teachersstudents(category, "Teacher", 1)
-      }
-    end
-    render :json  => data
-  end
+  # def data_dashboard  #Morris JS. this parses the json request. then it goes to the ajax file.
+  #   if params["q"] == ""
+  #     data = Category.all.map do |category|
+  #       {
+  #         category: category.content,
+  #         student: category_average_teachersstudents(category, "Student"),
+  #         teachers: category_average_teachersstudents(category, "Teacher")
+  #       }
+  #     end
+  #   else
+  #     quarter = params["q"].to_i
+  #     data = Category.all.map do |category|
+  #       {
+  #         category: category.content,
+  #         student: category_average_teachersstudents(category, "Student", quarter),
+  #         teachers: category_average_teachersstudents(category, "Teacher", quarter)
+  #       }
+  #     end
+  #   end
+  #   render :json  => data
+  # end
+
 
 #helper method-----------------------------------------------------------------
   def calc_average(ratings_array)
