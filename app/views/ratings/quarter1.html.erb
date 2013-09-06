@@ -1,8 +1,19 @@
-<% if @student.ratings.where(academic_quarter: 1).length == 0 %>
-<div class="completed-view">
-<h2>You currently have no ratings.<br> Please complete this semester's grade report and check back.</h2>
-<%= link_to "Report Card", user_categories_path(@student), class:"button" %>
-</div>
+<% if current_user.type == "Teacher" %>
+  <% if @student.self_ratings.where(academic_quarter: 1).length == 0 %>
+    <div class="completed-view">
+    <h2>You have not yet completed this semester's report card<br> for <%= @student.first_name %> <%= @student.last_name %>. Please submit it and check back.</h2>
+    <%= link_to "Report Card", user_categories_path(@student), class:"button" %>
+    </div>
+  <% else %>
+    <%= render :partial => 'quarter1' %>
+  <% end %>
 <% else %>
-<%= render :partial => 'quarter1' %>
+<% if @student.ratings.where(academic_quarter: 1).length == 0 %>
+    <div class="completed-view">
+    <h2>You have not completed this semester's report card.<br> Please submit and check back.</h2>
+    <%= link_to "Report Card", user_categories_path(@student), class:"button" %>
+    </div>
+  <% else %>
+   <%= render :partial => 'quarter1' %>
+  <% end %>
 <% end %>
