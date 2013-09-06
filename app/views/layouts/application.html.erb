@@ -11,20 +11,18 @@
   <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
 </head>
 <body>
+
   <% if signed_in? %>
-  <div class="sticky-footer-wrap">
   <%= render 'layouts/off_canvas_nav' %>
   <div class="page-wrap">
     <%= render 'layouts/header' %>
     <div class="errors"><%= render 'layouts/flashMessages' %></div>
     <%= yield %>
     <hr class="hr-hidden col-md-12">
-  </div>
-  <%= render 'layouts/footer' %>
+    </div>
   </div>
 
   <% else %>
-  <div class="sticky-footer-wrap">
   <header class="static-header">
     <div class="static-sign-in">
       <%= link_to 'Sign in', signin_path, class: "button static-btn" %>
@@ -33,9 +31,9 @@
   </header>
   <%= yield %>
   <hr class="hr-hidden col-md-12">
-  </div>
-  <%= render 'layouts/footer' %>
   <% end %>
+
+  <%= render 'layouts/footer' %>
 
   <script type="text/javascript">
     if($('.sign-in').length > 0) {

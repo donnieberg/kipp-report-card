@@ -418,16 +418,16 @@ body#dash_cumulative a#dash_cumulative {
 }
 
 
-.sticky-footer-wrap {
+/*.sticky-footer-wrap {
   min-height: 100%;
   height: auto !important;
   margin: 0 auto -60px;
-}
+}*/
 #footer {
 /*  margin-top: 60px;
   padding-top: 5px;*/
-  background: darken($grey, 50%);
-  height: 60px;
+/*  background: darken($grey, 50%);*/
+  height: 80px;
   p {
     color: #fff;
   }

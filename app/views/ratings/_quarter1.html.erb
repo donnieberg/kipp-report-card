@@ -60,13 +60,14 @@
       <th data-sort-ignore="true">Average</th>
       <th data-hide="phone,tablet" data-sort-ignore="true"></th>
       <th data-hide="phone,tablet" data-sort-ignore="true"></th>
+      <th data-hide="phone,tablet" data-sort-ignore="true"></th>
     </tr>
    </thead>
   <tbody>
   <% @categories.each do |category| %>
     <tr class="category-row">
       <td class="category-name"><%= category.content %></td>
-      <td colspan="3"><%= category_average_student(category, nil, 1) %></td>
+      <td colspan="4"><%= category_average_student(category, nil, 1) %></td>
 
       <% category.char_strengths.each do |char_strength| %>
     <tr>
