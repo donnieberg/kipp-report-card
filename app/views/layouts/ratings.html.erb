@@ -11,6 +11,7 @@
   <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
 </head>
 <body>
+<div class="sticky-footer-wrap">
   <%= render 'layouts/off_canvas_nav' %>
   <div class="page-wrap">
     <%= render 'layouts/header' %>
@@ -18,7 +19,7 @@
       <%= render 'layouts/flashMessages' %>
 
         <div class="col-md-12">
-        <% if @student.nil? %>
+      <% if @student.nil? %>
         <div class="user-show">
         <h1>
           <%= image_tag @user.avatar.url, class:"gravatar" %>
@@ -38,6 +39,8 @@
         <hr class="hr-hidden col-md-12">
         </div>
           <%= yield %>
+
+
       <% else %>
         <div class="userId"><%= @student.id %></div>
         <div class="user-show">
@@ -61,11 +64,14 @@
         <hr class="hr-hidden col-md-12">
         <% end %>
           <%= yield %>
-        <% end %>
+
+      <% end %>
       </div>
     </div>
-  </div>
+
+</div>
 <%= render 'layouts/footer' %>
+
 <script type="text/javascript">
 $(function () {
   var userId = $('.userId').html();

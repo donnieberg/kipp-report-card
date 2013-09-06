@@ -12,15 +12,19 @@
 </head>
 <body>
   <% if signed_in? %>
+  <div class="sticky-footer-wrap">
   <%= render 'layouts/off_canvas_nav' %>
   <div class="page-wrap">
     <%= render 'layouts/header' %>
-    <%= render 'layouts/flashMessages' %>
+    <div class="errors"><%= render 'layouts/flashMessages' %></div>
     <%= yield %>
-    <%= render 'layouts/footer' %>
+    <hr class="hr-hidden col-md-12">
+  </div>
+  <%= render 'layouts/footer' %>
   </div>
 
   <% else %>
+  <div class="sticky-footer-wrap">
   <header class="static-header">
     <div class="static-sign-in">
       <%= link_to 'Sign in', signin_path, class: "button static-btn" %>
@@ -28,6 +32,8 @@
     <a href="http://localhost:3000/"><h3><%=image_tag 'lab.png', class:"logo"%> CHARACTER LABS</h3></a>
   </header>
   <%= yield %>
+  <hr class="hr-hidden col-md-12">
+  </div>
   <%= render 'layouts/footer' %>
   <% end %>
 

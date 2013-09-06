@@ -1,8 +1,7 @@
 <% if current_user.type == "Teacher" %>
   <% if @student.self_ratings.where(academic_quarter: 2).length == 0 %>
     <div class="completed-view">
-    <h2>You have not yet completed this semester's report card<br> for <%= @student.first_name %> <%= @student.last_name %>. Please submit it and check back.</h2>
-    <%= link_to "Report Card", user_categories_path(@student), class:"button" %>
+    <h2>You have not yet completed this semester's report card<br> for <%= @student.first_name %> <%= @student.last_name %>. Semester Two begins in January 2014.</h2>
     </div>
   <% else %>
     <%= render :partial => 'quarter2' %>
@@ -10,8 +9,7 @@
 <% else %>
 <% if @student.ratings.where(academic_quarter: 2).length == 0 %>
     <div class="completed-view">
-    <h2>You have not completed this semester's report card.<br> Please submit and check back.</h2>
-    <%= link_to "Report Card", user_categories_path(@student), class:"button" %>
+    <h2>You have not completed this semester's report card.<br> Semester Two begins in January 2014.</h2>
     </div>
   <% else %>
    <%= render :partial => 'quarter2' %>

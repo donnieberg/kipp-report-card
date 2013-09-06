@@ -142,7 +142,7 @@ hr {
 /*-------------------real app------------------*/
 /*-----------------------STart off-canvas nav bar-----------------------*/
 
-html, body { min-height: 100%; }
+html, body { height: 100%; }
 
 body#quarter1 a#quarter1,
 body#quarter2 a#quarter2,
@@ -272,6 +272,12 @@ body#dash_cumulative a#dash_cumulative {
 
 
 /*----------------GRADING------------------------*/
+
+.alert {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
 .completed-view {
   text-align: center;
   h2 {
@@ -411,11 +417,17 @@ body#dash_cumulative a#dash_cumulative {
   display:none;
 }
 
-footer {
-  margin-top: 60px;
-  padding-top: 5px;
+
+.sticky-footer-wrap {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -60px;
+}
+#footer {
+/*  margin-top: 60px;
+  padding-top: 5px;*/
   background: darken($grey, 50%);
-  height: 100px;
+  height: 60px;
   p {
     color: #fff;
   }
