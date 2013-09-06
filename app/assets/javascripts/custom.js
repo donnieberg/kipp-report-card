@@ -13,7 +13,9 @@ $(function () {
   //Circular progress bars on dashboard
   $(".knob").knob();
 
-  $('.carousel').carousel();
+  $('.carousel').carousel({
+    interval: 4000
+  });
 
 });
 

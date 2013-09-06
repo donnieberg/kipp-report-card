@@ -18,7 +18,7 @@ KippReportCard::Application.routes.draw do
   match '/ratings', to: 'ratings#index',        via: 'get' #rating for student
   match '/dashboard', to: 'ratings#dashboard',  via: 'get' #teacher's dashboard for all student ratings
   get '/users/:id/data.json' => 'ratings#data'
-  get '/dashboard/:id/data.json' => 'ratings#data_dashboard'
+  # get '/dashboard/data.json' => 'ratings#data_dashboard'
 
   ##angular
   get '/get_users_by_admin' => 'users#get_users_by_admin'

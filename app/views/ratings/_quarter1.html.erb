@@ -15,8 +15,20 @@
     <p>Total Graders: <%= all_graders(@student, 1).length %></p>
   </li>
 </ul>
+<ul class="ratings-overview-mobile">
+  <li class="overview-left">
+    <h2 class="cumulative-grade">
+      <i class="icon-star-empty star"></i>
+      <%= cumulative_average(@student, 1) %>
+      <i class="icon-star-empty star"></i>
+    </h2>
+  </li>
+</ul>
 
+
+<hr class="hr-hidden col-md-12">
 <hr class="col-md-12">
+<hr class="hr-hidden col-md-12">
 
 <h1>Character Strength Categories</h1>
 <% @categories.each do |category| %>
@@ -29,6 +41,7 @@
 <hr class="hr-hidden col-md-12">
 <hr class="hr-hidden col-md-12">
 <hr class="col-md-12">
+<hr class="hr-hidden col-md-12">
 <hr class="hr-hidden col-md-12">
 
 <h1>Teacher/Student Grades</h1>
