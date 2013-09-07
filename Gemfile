@@ -12,6 +12,8 @@ gem "font-awesome-rails"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
