@@ -6,6 +6,7 @@ $dirty-brown: #886A08;
 $light-blue: rgb(135, 206, 235);
 $grey: #b1aea6;
 $light-grey: lighten($grey, 20%);
+$success-green: #dff0d8;
 
 body {
   font:300 1.8em 'Lato', sans-serif;
@@ -353,9 +354,11 @@ body#dash_cumulative a#dash_cumulative {
   font-size: .5em;
   color: $grey;
 }
-
 .footable {
   background: #fff;
+  a {
+    color: $lime-green;
+  }
 }
 .category-icon {
   margin-right: 10px;
@@ -369,7 +372,9 @@ body#dash_cumulative a#dash_cumulative {
 }
 
 /* --------------MISC--------------------------- */
-
+.success-green {
+  background-color: $success-green !important;
+}
 .debug_dump {
   clear: both;
   float: left;
@@ -460,12 +465,16 @@ body#dash_cumulative a#dash_cumulative {
   .mobile-quarter-links {
     display: block;
     text-align: center;
+    a {
+      color: $lime-green;
+      font-size: .8em;
+    }
   }
 }
 @media screen and (max-width:480px) {
   h1, h3,
   .below-hero h1 {
-    font-size: 1.5em;
+    font-size: 1em;
     text-transform: uppercase;
     color: darken($grey, 10%);
   }
@@ -480,6 +489,10 @@ body#dash_cumulative a#dash_cumulative {
   }
   .static-btn {
     display: none;
+  }
+  .static-icon {
+    width: 120px;
+    height: 120px;
   }
   .below-hero .welcome-h1,
   .page-heading h1 {
