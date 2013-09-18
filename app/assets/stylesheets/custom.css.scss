@@ -483,7 +483,7 @@ body#dash_cumulative a#dash_cumulative {
   }
   .below-hero .welcome-h1,
   .page-heading h1 {
-    padding-top: 17%;
+    padding-top: 20%;
   }
   .page-heading h2 {
     font-size: 1em;
@@ -491,10 +491,17 @@ body#dash_cumulative a#dash_cumulative {
   .user-show {
     padding-top:21%;
   }
-
   #main-nav:target {
     width: 75%;
     z-index: 9999px;
+  }
+  .main-header {
+    padding: 0px;
+    a {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
   }
   #main-nav:target + .page-wrap {
     width: 25%;
@@ -504,6 +511,9 @@ body#dash_cumulative a#dash_cumulative {
     }
     .close-menu {
        display: block;
+       background: #000;
+       color: #fff;
+       padding: 10px;
     }
     .main-header {
       width: 25%;
