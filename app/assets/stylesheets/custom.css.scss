@@ -1,6 +1,5 @@
 @import "font-awesome";
 
-/*-------------------DONIELLE CUSTOM STYLES----------------------------------------*/
 $lime-green: #79a002;
 $dirty-brown: #886A08;
 $light-blue: rgb(135, 206, 235);
@@ -80,7 +79,7 @@ hr {
   padding: 20px;
   z-index: 99999;
   h1 {
-    font-size: 5em;
+    font-size: 4.5em;
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
@@ -89,11 +88,12 @@ hr {
   }
   .button.register-btn   {
     border: 2px #fff solid;
-    width: 80%;
+ /*   width: 80%;*/
+    padding: 8px 50px;
     &:hover, &:focus {
-    border: 2px $dirty-brown solid;
-    color: $dirty-brown;
-  }
+      border: 2px $dirty-brown solid;
+      color: $dirty-brown;
+    }
   }
   a {
     color: #fff;
