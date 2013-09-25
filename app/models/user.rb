@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password,
-                  :password_confirmation, :school_id, :type, :grade_level, :person_id, :admin, :avatar
+                  :password_confirmation, :school_id, :type, :grade_level, :person_id, :avatar
 
   belongs_to :school
   has_many :ratings, foreign_key: "rater_id"

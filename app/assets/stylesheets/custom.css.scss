@@ -504,6 +504,13 @@ body#dash_cumulative a#dash_cumulative {
   .user-show {
     padding-top:21%;
   }
+  .main-nav {
+    transition: none;
+    }
+  .page-wrap {
+    trasition: none;
+    opacity: .5;
+  }
   #main-nav:target {
     width: 75%;
     z-index: 9999px;
