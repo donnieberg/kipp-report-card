@@ -3,14 +3,14 @@ module RatingsHelper
     current_user.ratings.where(student_id: student.id).length >= CharStrength.all.length
   end
 
-#for individual student-----------------------------------------
+  #for individual student-----------------------------------------
   def cumulative_average(student, quarter=nil)
     if quarter.nil?
       student_ratings = student.self_ratings.map {|rating| rating.number.to_f }
     else
       student_ratings = student.self_ratings.where(academic_quarter: quarter).map {|rating| rating.number.to_f }
     end
-      (student_ratings.reduce(:+)/student_ratings.length).round(1)
+    (student_ratings.reduce(:+)/student_ratings.length).round(1)
   end
 
   def all_graders(student, quarter=nil)
@@ -54,7 +54,7 @@ module RatingsHelper
       data = Category.all.map do |category|
         {
           category: category.content,
-          student: category_average_student(category, "Student"),
+          student:  category_average_student(category, "Student"),
           teachers: category_average_student(category, "Teacher")
         }
       end
@@ -63,15 +63,15 @@ module RatingsHelper
       data = Category.all.map do |category|
         {
           category: category.content,
-          student: category_average_student(category, "Student", quarter),
+          student:  category_average_student(category, "Student", quarter),
           teachers: category_average_student(category, "Teacher", quarter)
         }
       end
     end
-    render :json  => data
+    render json: data
   end
 
-#for all teacher's students------------------------------------------
+  #for all teacher's students------------------------------------------
   def category_average_teachersstudents(category, rater_type=nil, quarter=nil)
     if quarter.nil?
       ratings_array = category.ratings
@@ -97,7 +97,7 @@ module RatingsHelper
   #     data = Category.all.map do |category|
   #       {
   #         category: category.content,
-  #         student: category_average_teachersstudents(category, "Student"),
+  #         student:  category_average_teachersstudents(category, "Student"),
   #         teachers: category_average_teachersstudents(category, "Teacher")
   #       }
   #     end
@@ -106,7 +106,7 @@ module RatingsHelper
   #     data = Category.all.map do |category|
   #       {
   #         category: category.content,
-  #         student: category_average_teachersstudents(category, "Student", quarter),
+  #         student:  category_average_teachersstudents(category, "Student", quarter),
   #         teachers: category_average_teachersstudents(category, "Teacher", quarter)
   #       }
   #     end
@@ -115,7 +115,7 @@ module RatingsHelper
   # end
 
 
-#helper method-----------------------------------------------------------------
+  #helper method-----------------------------------------------------------------
   def calc_average(ratings_array)
     unless ratings_array.empty?
       ratings = ratings_array.map { |rating| rating.number.to_f }
