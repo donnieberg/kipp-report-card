@@ -1,12 +1,8 @@
 class Student < User
-  has_many :student_courses
-  has_many :courses, through: :student_courses
+  attr_accessible :school, :grade_level, :id_number
 
-  has_many :teachers, through: :ratings, source: :rater, conditions: "type = 'Teacher'"
-  has_many :self_ratings, class_name:"Rating", foreign_key:"student_id"
-
-  def self.model_name
-    User.model_name
-  end
+  belongs_to :school
+  has_and_belongs_to_many :teachers
+  has_many :report_cards
 
 end

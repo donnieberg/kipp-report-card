@@ -1,9 +1,7 @@
 class Teacher < User
-  has_many :courses
-  has_many :students, through: :courses
-  has_many :students, through: :ratings
+  attr_accessible :school, :grade_level, :id_number
 
-  def self.model_name
-    User.model_name
-  end
+  belongs_to :school
+  has_and_belongs_to_many :students
+
 end

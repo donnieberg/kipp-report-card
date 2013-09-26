@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 gem 'pry-rails'
+gem 'devise'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem 'font-awesome-rails'

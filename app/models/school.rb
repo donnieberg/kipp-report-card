@@ -1,7 +1,6 @@
 class School < ActiveRecord::Base
   attr_accessible :name, :city, :state, :grade_level
 
-  has_many :users
   has_many :ratings, through: :users
 
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }

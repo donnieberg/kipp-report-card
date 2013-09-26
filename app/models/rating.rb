@@ -1,11 +1,7 @@
 class Rating < ActiveRecord::Base
-  attr_accessible :number, :rater_id, :rater_type, :student_id, :char_strength_id, :academic_quarter
+  attr_accessible :report_card, :author
+  attr_accessible :grit, :zest, :school_work, :interpersonal, :optimism, :gratitude, :social_intelligence, :curiosity
 
-  belongs_to :student
-  belongs_to :rater, class_name: "User"
-  belongs_to :char_strength
-
-  validates :number, :rater_id, :rater_type, :student_id, :char_strength_id, :academic_quarter, presence: true
+  belongs_to :report_card
 
 end
-
