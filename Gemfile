@@ -1,13 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem 'rails', '4.0.0'
 gem 'bcrypt-ruby', '3.0.1'
-# gem 'bootstrap-sass', '2.3.2.0'
-# gem "rails-erd"
 gem 'pry-rails'
-gem "paperclip", "~> 3.0"
-gem "aws-sdk"
-gem "font-awesome-rails"
+gem 'paperclip', '~> 3.0'
+gem 'aws-sdk'
+gem 'font-awesome-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
