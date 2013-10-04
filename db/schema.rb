@@ -11,37 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903055200) do
-
-  create_table "categories", :force => true do |t|
-    t.string   "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "char_strengths", :force => true do |t|
-    t.text     "content"
-    t.integer  "category_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "courses", :force => true do |t|
-    t.string   "title"
-    t.integer  "teacher_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20131004025957) do
 
   create_table "ratings", :force => true do |t|
-    t.integer  "number"
-    t.integer  "rater_id"
-    t.string   "rater_type"
+    t.integer  "report_card_id"
+    t.string   "author"
+    t.string   "grit"
+    t.string   "zest"
+    t.string   "school_work"
+    t.string   "interpersonal"
+    t.string   "optimism"
+    t.string   "gratitude"
+    t.string   "social_intelligence"
+    t.string   "curiosity"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "report_cards", :force => true do |t|
     t.integer  "student_id"
-    t.integer  "char_strength_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "academic_quarter"
+    t.integer  "quarter"
+    t.integer  "year"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "schools", :force => true do |t|
@@ -53,35 +45,32 @@ ActiveRecord::Schema.define(:version => 20130903055200) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "student_courses", :force => true do |t|
-    t.integer  "student_id"
-    t.integer  "course_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "password"
-    t.string   "password_confirmation"
-    t.integer  "school_id"
-    t.string   "type"
-    t.integer  "grade_level"
-    t.integer  "person_id"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.boolean  "admin",                 :default => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "type"
+    t.integer  "school_id"
+    t.integer  "grade_level"
+    t.integer  "id_number"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
