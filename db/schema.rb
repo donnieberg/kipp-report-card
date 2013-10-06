@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(:version => 20131004025957) do
   create_table "ratings", :force => true do |t|
     t.integer  "report_card_id"
     t.string   "author"
-    t.string   "grit"
-    t.string   "zest"
-    t.string   "school_work"
-    t.string   "interpersonal"
-    t.string   "optimism"
-    t.string   "gratitude"
-    t.string   "social_intelligence"
-    t.string   "curiosity"
+    t.integer  "grit"
+    t.integer  "zest"
+    t.integer  "school_work"
+    t.integer  "interpersonal"
+    t.integer  "optimism"
+    t.integer  "gratitude"
+    t.integer  "social_intelligence"
+    t.integer  "curiosity"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

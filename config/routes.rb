@@ -4,6 +4,8 @@ KippReportCard::Application.routes.draw do
 
   root :to => 'home#index'
 
+  get '/ratings_test' => 'home#ratings_test'
+
   # resources :sessions, only: [:new, :create, :destroy]
   # resources :schools, :char_strengths
 

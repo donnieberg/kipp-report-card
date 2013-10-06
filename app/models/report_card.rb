@@ -3,4 +3,6 @@ class ReportCard < ActiveRecord::Base
 
   belongs_to :student
   has_many :ratings
+
+
 end
