@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20131004025957) do
     t.datetime "avatar_updated_at"
     t.string   "type"
     t.integer  "school_id"
-    t.integer  "grade_level"
+    t.string   "grade_level"
     t.integer  "id_number"
     t.string   "first_name"
     t.string   "last_name"

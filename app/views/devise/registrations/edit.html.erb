@@ -1,21 +1,42 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+ <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+<!--   <div><%#= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <%#= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div><%#= f.label :password_confirmation %><br />
+  <%#= f.password_field :password_confirmation %></div> -->
 
+  <div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name, :autofocus => true %></div>
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name, :autofocus => true %></div>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+  <div>School <%= f.select :school_id, School.all.map{|school| [school.name, school.id]}, :include_blank => true, :prompt => "Select School" %></div>
+
+  <div><%= f.label :type %><br />
+  <%= radio_button_tag(:type, "Super") %> Super Admin
+  <%= radio_button_tag(:type, "Admin") %> Admin
+  <%= radio_button_tag(:type, "Teacher") %> Teacher
+  <%= radio_button_tag(:type, "Student") %> Student</div>
+
+  <div><%= f.label :grade_level %><br />
+  <%= radio_button_tag(:grade_level, 5) %> 5th Grade
+  <%= radio_button_tag(:grade_level, 6) %> 6th Grade
+  <%= radio_button_tag(:grade_level, 7) %> 7th Grade
+  <%= radio_button_tag(:grade_level, 8) %> 8th Grade</div>
+
+  <div><%= f.label :id_number %><br />
+  <%= f.text_field :id_number, :autofocus => true %></div>
+  <div><%= f.label :avatar %><br />
+  <%= f.file_field :avatar %></div>
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
@@ -27,3 +48,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
 <%= link_to "Back", :back %>
+

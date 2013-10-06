@@ -13,32 +13,32 @@
 
       <% if current_user.type == 'Teacher' %>  <!-------- TEACHER VIEW ---------->
         <% if current_user.admin %>  <!-------- ADMIN VIEW ---------->
-          <li><%= link_to users_path do %>
+          <li><%= link_to 'www.google.com' do %>
             <div class='icon'><%=image_tag 'user_white.png'%></div>
             <div class='navtext'>All Users</div>
             <% end %>
           </li>
         <% else %>
-          <li><%= link_to users_path do %>
+          <li><%= link_to 'www.google.com' do %>
             <div class='icon'><%=image_tag 'pen_white.png'%></div>
             <div class='navtext'>Grade Students</div>
             <% end %>
           </li>
         <% end %>  <!-------- END ADMIN VIEW ---------->
           <li>
-            <%= link_to dashboard_path do %>
+            <%= link_to edit_user_registration_path do %>
             <div class='icon'><%=image_tag 'params_white.png'%></div>
             <div class='navtext'>My Dashboard</div>
             <% end %>
           </li>
       <% else %>  <!-------- STUDENT VIEW ---------->
-          <li><%= link_to user_categories_path(current_user) do %>
+          <li><%= link_to 'www.google.com' do %>
             <div class='icon'><%=image_tag 'pen_white.png'%></div>
             <div class='navtext'>My Report Card</div>
             <% end %>
           </li>
           <li>
-            <%= link_to user_ratings_path(current_user) do %>
+            <%= link_to 'www.google.com' do %>
             <div class='icon'><%=image_tag 'params_white.png'%></div>
             <div class='navtext'>My Dashboard</div>
             <% end %>
@@ -46,13 +46,13 @@
       <% end %>
 
       <li>
-        <%= link_to edit_user_path(current_user) do %>
+        <%= link_to edit_user_registration_path(current_user) do %>
         <div class='icon'><%=image_tag 'settings_white.png'%></div>
         <div class='navtext'>Settings</div>
         <% end %>
       </li>
       <li>
-        <%= link_to 'Sign out', signout_path, method: 'delete' %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
       </li>
     </ul>
   </nav>
