@@ -1,0 +1,29 @@
+<h1>Report Card Raw Ratings</h1>
+
+<% @report_card_ratings.each do |rating| %>
+  <ul class="rating">
+    <li>Author: <%= get_author(rating.author) %></li>
+    <li>Grit: <%= rating.grit %></li>
+    <li>zest: <%= rating.zest %></li>
+    <li>school_work: <%= rating.school_work %></li>
+    <li>interpersonal: <%= rating.interpersonal %></li>
+    <li>optimism: <%= rating.optimism %></li>
+    <li>gratitude: <%= rating.gratitude %></li>
+    <li>social_intelligence: <%= rating.social_intelligence %></li>
+    <li>curiosity: <%= rating.curiosity %></li>
+  </ul>
+<% end %>
+
+<h1>Report Card Averages</h1>
+<ul>
+<% @report_card_averages.each do |key, value| %>
+  <li><%= key %>: <%= value %></li>
+<% end %>
+</ul>
+
+<% @report_card_averages.each do |key, value| %>
+<div class="knobs">
+  <h3><%= key %></h3>
+  <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= value %>">
+</div>
+<% end %>

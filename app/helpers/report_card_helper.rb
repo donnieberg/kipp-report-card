@@ -10,5 +10,10 @@ module ReportCardHelper
     end
   end
 
+  def get_author(id)
+    author = User.find(id)
+    return "#{author.first_name} #{author.last_name}"
+  end
+
 end
 

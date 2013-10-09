@@ -12,7 +12,7 @@ class Array
     end
 
     averages.each do |key, value|
-      averages[key] = value/self.length.to_f
+      averages[key] = (value/self.length.to_f).round(2)
     end
   end
 end

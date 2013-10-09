@@ -4,7 +4,11 @@ KippReportCard::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get '/ratings_test' => 'home#ratings_test'
+  resources :students do
+    resources :report_cards
+  end
+
+  resources :ratings
 
   # resources :sessions, only: [:new, :create, :destroy]
   # resources :schools, :char_strengths

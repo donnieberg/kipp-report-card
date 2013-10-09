@@ -7,6 +7,26 @@ $grey: #b1aea6;
 $light-grey: lighten($grey, 20%);
 $success-green: #dff0d8;
 
+
+.report-card {
+  border: 1px solid #ccc;
+}
+.rating {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin: 5px;
+}
+.knobs {
+  float: left;
+  text-align: center;
+}
+
+
+
+
+
+
+
 body {
   font:300 1.8em 'Lato', sans-serif;
   color: $grey;
@@ -367,9 +387,7 @@ body#dash_cumulative a#dash_cumulative {
   background: $grey;
   color: #fff;
 }
-.knobs {
-  text-align: center;
-}
+
 
 /* --------------MISC--------------------------- */
 .success-green {
