@@ -33,6 +33,28 @@ $(function () {
     }
   });
 
+  //Morris JS
+  $(function () {
+    var studentId = 4;
+  $.ajax(
+      '/students/' + studentId + '/graph',
+      { success: function(graph_data){
+          var colors = ['red', 'skyblue', 'green', 'gold'];
+          var graph_container = $('.chart');
+
+        //Moris.js to create graph
+          graph_container.append('<div id="ratings_chart" />');
+          new Morris.Line({
+            element: 'ratings_chart',
+            data: graph_data,
+            xkey: 'y',
+            ykeys: ['grit', 'zest', 'school_work', 'interpersonal', 'optimism', 'gratitude', 'social_intelligence', 'curiosity'],
+            labels: ['grit', 'zest', 'school_work', 'interpersonal', 'optimism', 'gratitude', 'social_intelligence', 'curiosity']
+          });
+        }
+      }
+    );
+  });
 
 });
 

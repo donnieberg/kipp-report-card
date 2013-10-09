@@ -27,13 +27,13 @@ alex_reportcard4 = ReportCard.create(quarter: 4, year: 2013, student: alex)
 Rating.create(
              author:               alex,
              report_card:          alex_reportcard1,
-             grit:                 5,
+             grit:                 3,
              zest:                 5,
-             school_work:          5,
-             interpersonal:        5,
-             optimism:             2,
-             gratitude:            3,
-             social_intelligence:  4,
+             school_work:          3,
+             interpersonal:        2,
+             optimism:             5,
+             gratitude:            5,
+             social_intelligence:  6,
              curiosity:            2
              )
 
@@ -42,22 +42,22 @@ Rating.create(
              report_card:          alex_reportcard1,
              grit:                 4,
              zest:                 4,
-             school_work:          5,
-             interpersonal:        5,
-             optimism:             3,
-             gratitude:            3,
-             social_intelligence:  4,
+             school_work:          3,
+             interpersonal:        3,
+             optimism:             4,
+             gratitude:            5,
+             social_intelligence:  6,
              curiosity:            3
              )
 
 Rating.create(
              author:               jackie,
              report_card:          alex_reportcard1,
-             grit:                 3,
+             grit:                 4,
              zest:                 5,
-             school_work:          5,
+             school_work:          4,
              interpersonal:        3,
-             optimism:             5,
+             optimism:             6,
              gratitude:            2,
              social_intelligence:  4,
              curiosity:            3
@@ -66,12 +66,12 @@ Rating.create(
 Rating.create(
              author:               alex,
              report_card:          alex_reportcard2,
-             grit:                 2,
-             zest:                 1,
+             grit:                 7,
+             zest:                 6,
              school_work:          4,
              interpersonal:        3,
              optimism:             2,
-             gratitude:            5,
+             gratitude:            6,
              social_intelligence:  4,
              curiosity:            2
              )

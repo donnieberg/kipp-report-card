@@ -3,9 +3,13 @@ class ReportCardsController < ApplicationController
   before_filter :find_student
 
   def index
-    student_report_cards = @student.report_cards
-    @report_card_teacher_averages = student_report_cards.map do |report_card|
-      report_card.teacher_ratings(@student).get_average
+    @student_report_cards = @student.report_cards
+    @report_card_teacher_averages = @student_report_cards.map do |report_card|
+      {
+        year: report_card.year,
+        quarter: report_card.quarter,
+        char_strengths: report_card.teacher_ratings.get_average
+      }
     end
   end
 
@@ -27,8 +31,8 @@ class ReportCardsController < ApplicationController
   def show
     @report_card = ReportCard.find(params[:id])
     @all_ratings = @report_card.ratings
-    @self_ratings = @report_card.self_ratings(@student)
-    @teacher_ratings = @report_card.teacher_ratings(@student)
+    @self_ratings = @report_card.self_ratings
+    @teacher_ratings = @report_card.teacher_ratings
     @teacher_averages = @teacher_ratings.get_average
   end
 
@@ -55,6 +59,22 @@ class ReportCardsController < ApplicationController
     redirect_to report_cards_path
   end
 
+  def graph
+    @student_report_cards = @student.report_cards
+    @report_card_teacher_averages = @student_report_cards.map do |report_card|
+      {
+        year: report_card.year,
+        quarter: report_card.quarter,
+        char_strengths: report_card.teacher_ratings.get_average
+      }
+    end
+
+    data = @report_card_teacher_averages.map do |average|
+      average[:char_strengths].merge({y: ReportCard.year_quarter_conversion(average[:year], average[:quarter])})
+    end
+
+    render :json => data
+  end
 
   private
     def find_student

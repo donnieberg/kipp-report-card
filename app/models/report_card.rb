@@ -4,14 +4,23 @@ class ReportCard < ActiveRecord::Base
   belongs_to :student
   has_many :ratings
 
-  def self_ratings(student)
-    self.ratings.where(author: student.id)
+  def self_ratings
+    self.ratings.where(author: self.student.id)
   end
 
-  def teacher_ratings(student)
+  def teacher_ratings
     self.ratings.select do |rating|
-      rating.author.to_i != student.id
+      rating.author.to_i != self.student.id
     end
+  end
+
+  def self.year_quarter_conversion(year, quarter)
+    # Implements this mapping and adds the year;
+    # 1 => 0.5
+    # 2 => 0.75
+    # 3 => 0
+    # 4 => 0.25
+    year + ((quarter + 1)% 4)/4.0
   end
 
 

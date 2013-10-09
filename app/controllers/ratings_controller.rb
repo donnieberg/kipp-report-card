@@ -1,10 +1,7 @@
 class RatingsController < ApplicationController
 
-  def index #individual student's ratings
-    @user = current_user
-    @categories = Category.all
-    @student = Student.find(params[:user_id])
-    @current_quarter = determine_academic_quarter
+  def index
+    @ratings = Rating.all
   end
 
   def new
@@ -12,68 +9,40 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @saved_ratings_array = params[:rating].map do |id, attrs|
-      @rating = Rating.new(attrs)
-      @rating.char_strength_id = id
-      @rating.rater_type = current_user.type
-      @rating.rater_id = current_user.id
-      @rating.student_id = params[:user_id]
-      @rating.academic_quarter = params[:academic_quarter].to_i
-      @rating.save
-    end
-    #if all our ratings saved is true..
-    if @saved_ratings_array.all? && @saved_ratings_array.length == CharStrength.all.length
-      flash[:success] = "Successfully submitted Report Card!"
-      redirect_to user_ratings_path
+    @rating = Rating.new(params[:rating])
+    if @rating.save
+      flash[:success] = "Assessment successfully created"
+      render :show
     else
-      flash[:danger] = "Error in submitting Report Card"
-      redirect_to user_categories_path(params[:user_id])
+      flash[:danger] = "Error in creating assessment. Please submit again."
+      render :new
     end
   end
 
-
-  def quarter1
-    @user = current_user
-    @categories = Category.all
-    @student = Student.find(params[:id])
-    @current_quarter = determine_academic_quarter
+  def show
+    @rating = Rating.find(params[:id])
   end
 
-  def quarter2
-    @user = current_user
-    @categories = Category.all
-    @student = Student.find(params[:id])
-    @current_quarter = determine_academic_quarter
+  def edit
+    @rating = Rating.find(params[:id])
   end
 
-  def cumulative
-    @user = current_user
-    @categories = Category.all
-    @student = Student.find(params[:id])
-    @current_quarter = determine_academic_quarter
+  def update
+    @rating = Rating.find(params[:id])
+    @rating.update_attributes(params[:rating])
+    if @rating
+      flash[:success] = "Assessment successfully updated."
+      render :show
+    else
+      flash[:danger] = "Error, please try editing assessment again."
+      render :edit
+    end
   end
 
-  def dashboard
-    @categories = Category.all
-    @user = current_user
-    @current_quarter = determine_academic_quarter
+  def destroy
+    @rating = Rating.find(params[:id])
+    @rating.delete
+    redirect_to ratings_path
   end
 
-  def dashboard_q1
-    @categories = Category.all
-    @user = current_user
-    @current_quarter = determine_academic_quarter
-  end
-
-  def dashboard_q2
-    @categories = Category.all
-    @user = current_user
-    @current_quarter = determine_academic_quarter
-  end
-
-  def dashboard_cumulative
-    @categories = Category.all
-    @user = current_user
-    @current_quarter = determine_academic_quarter
-  end
 end

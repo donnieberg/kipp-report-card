@@ -10,6 +10,9 @@ KippReportCard::Application.routes.draw do
 
   resources :ratings
 
+  get '/students/:student_id/graph' => 'report_cards#graph'
+
+
   # resources :sessions, only: [:new, :create, :destroy]
   # resources :schools, :char_strengths
 
