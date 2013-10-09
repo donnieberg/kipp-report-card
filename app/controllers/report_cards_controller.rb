@@ -1,8 +1,12 @@
 class ReportCardsController < ApplicationController
+
   before_filter :find_student
 
   def index
-    @student_report_cards = @student.report_cards
+    student_report_cards = @student.report_cards
+    @report_card_teacher_averages = student_report_cards.map do |report_card|
+      report_card.teacher_ratings(@student).get_average
+    end
   end
 
   def new
@@ -22,8 +26,10 @@ class ReportCardsController < ApplicationController
 
   def show
     @report_card = ReportCard.find(params[:id])
-    @report_card_ratings = @student.ratings(@report_card.year, @report_card.quarter)
-    @report_card_averages = @report_card_ratings.get_average
+    @all_ratings = @report_card.ratings
+    @self_ratings = @report_card.self_ratings(@student)
+    @teacher_ratings = @report_card.teacher_ratings(@student)
+    @teacher_averages = @teacher_ratings.get_average
   end
 
   def edit

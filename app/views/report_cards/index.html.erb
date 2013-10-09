@@ -1,1 +1,14 @@
-<h1>All Report Cards</h1>
+<!----------------------- START FOR INDIVIDUAL STUDENT ------------------------>
+<h1>All <%= @student.first_name %>'s Report Cards</h1>
+
+<h2>Teacher Only Ratings Averages</h2>
+<% @report_card_teacher_averages.each do |report_card| %>
+  <ul>
+  <% report_card.each do |key, value| %>
+    <li><%= key %>: <%= value %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+
+<!----------------------- END FOR INDIVIDUAL STUDENT ------------------------>

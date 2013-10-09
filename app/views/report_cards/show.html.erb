@@ -1,8 +1,9 @@
+<!----------------------- START FOR INDIVIDUAL STUDENT ------------------------>
 <h1>Report Card Raw Ratings</h1>
-
-<% @report_card_ratings.each do |rating| %>
+<% @all_ratings.each do |rating| %>
   <ul class="rating">
     <li>Author: <%= get_author(rating.author) %></li>
+    <li>Year: <%= @report_card.year %>, Quarter: <%= @report_card.quarter %></li>
     <li>Grit: <%= rating.grit %></li>
     <li>zest: <%= rating.zest %></li>
     <li>school_work: <%= rating.school_work %></li>
@@ -14,16 +15,18 @@
   </ul>
 <% end %>
 
-<h1>Report Card Averages</h1>
+
+<h2>Teacher Only Ratings Averages</h2>
 <ul>
-<% @report_card_averages.each do |key, value| %>
+<% @teacher_averages.each do |key, value| %>
   <li><%= key %>: <%= value %></li>
 <% end %>
 </ul>
 
-<% @report_card_averages.each do |key, value| %>
+<% @teacher_averages.each do |key, value| %>
 <div class="knobs">
   <h3><%= key %></h3>
   <input class="knob" data-fgColor="#87CEEB" data-thickness=".3" data-readOnly=true value="<%= value %>">
 </div>
 <% end %>
+<!----------------------- END FOR INDIVIDUAL STUDENT ------------------------>
